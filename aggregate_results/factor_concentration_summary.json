@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "research_boundary": "The reported sector score, ranking head, signal months, Top 1/Bottom 1 rules, costs, and 42-day sleeves remain fixed.",
+  "factor_data": {
+    "ff5_sha256": "bcf32ecc9e2bb20383784ac98891e42146a0091eec6ec77d3b5bf0d4e981e3f6",
+    "momentum_sha256": "f4237e2e36dffa13fd7823f55376316a94b5ac663af951dd9eaca8ed2c678bcf",
+    "fred_sha256": {
+      "DGS10": "3db69c5671b478b9ac6edcb708b08df3e4ea9a9be60e2c7bacb4688c0aeb1cdd",
+      "BAMLC0A0CM": "baef69e0dee1e958396611ed0cac92fb656725619f37c8a24289aaa07a2c218b"
+    },
+    "date_min": "1963-07-01",
+    "date_max": "2026-05-29",
+    "rows": 15833
+  },
+  "prediction_sha256": "b2292a1b77f7f4474b81ce95590016b3a8bc5ac2ce0a841a6ed3a331bdbbf0bf",
+  "leave_one_sector": {
+    "minimum_rank_ic": 0.050434852543913666,
+    "positive_rank_ic_share": 1.0,
+    "minimum_top1_ff5_mom_alpha": 0.06943810595607891,
+    "positive_top1_ff5_mom_alpha_share": 1.0,
+    "minimum_spread_ff5_mom_alpha": 0.11074928112447258,
+    "positive_spread_ff5_mom_alpha_share": 1.0
+  },
+  "leave_one_month": {
+    "minimum_top1_ff5_mom_alpha": 0.1575187192961467,
+    "positive_top1_ff5_mom_alpha_share": 1.0,
+    "minimum_spread_ff5_mom_alpha": 0.20426544531879998,
+    "positive_spread_ff5_mom_alpha_share": 1.0,
+    "three_largest_alpha_contributor_months": [
+      "2024-05-01",
+      "2026-01-01",
+      "2024-04-01"
+    ]
+  }
+}

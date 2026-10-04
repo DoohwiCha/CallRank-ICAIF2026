@@ -1,0 +1,94 @@
+{
+  "status": "PASS",
+  "research_boundary": "Identification diagnostics with the reported signal, head, training boundary, target, and evaluation period held fixed.",
+  "authoritative_verification": {
+    "authoritative_sha256": "07244308cb784229553e7a18152005f8c5e2876354798cd718e1b9e68cbef92d",
+    "rows": 265,
+    "max_prediction_difference": 0.0,
+    "max_target_difference": 0.0
+  },
+  "structured_news": {
+    "data": {
+      "fmp_rows": 64492,
+      "clean_calls": 21421,
+      "evaluation_event_match_share": 0.9637271937445699,
+      "training_event_match_share": 0.8006222877261934,
+      "evaluation_consensus_pair_share": 0.9626411815812337,
+      "training_consensus_pair_share": 0.7841644149676574,
+      "consensus_vintage_status": "diagnostic_only: local FMP snapshot does not prove the estimate was frozen before each historical announcement"
+    },
+    "models": [
+      {
+        "model": "consensus_proxy",
+        "features": [
+          "eps_consensus_surprise",
+          "revenue_consensus_surprise"
+        ],
+        "train_rows": 694,
+        "evaluation_rows": 265,
+        "coefficients": {
+          "eps_consensus_surprise": -0.00288112318835338,
+          "revenue_consensus_surprise": 0.01778057568222119
+        }
+      },
+      {
+        "model": "seasonal_pit_proxy",
+        "features": [
+          "eps_seasonal_change",
+          "revenue_seasonal_growth"
+        ],
+        "train_rows": 695,
+        "evaluation_rows": 265,
+        "coefficients": {
+          "eps_seasonal_change": -0.006440350738370611,
+          "revenue_seasonal_growth": 0.01524005505534511
+        }
+      }
+    ],
+    "sector_feature_rows": 1337
+  },
+  "history_placebo": {
+    "donors": {
+      "eligible_rows": 20151,
+      "rows_with_candidates": 20127,
+      "candidate_coverage": 0.9988089921095727,
+      "median_matched_donors": 4.0
+    },
+    "draws": {
+      "randomizations": 1000,
+      "seed": 20260725,
+      "mean": 0.07430070346320346,
+      "std": 0.02489835754890048,
+      "q95": 0.11624053030303029,
+      "maximum": 0.17351190476190478,
+      "own_history_ic": 0.13506493506493508,
+      "upper_tail_p": 0.004995004995004995
+    },
+    "identity": [
+      {
+        "representation": "current_qa",
+        "train_firms": 436,
+        "evaluation_rows": 3987,
+        "top1_accuracy": 0.4140958113870078,
+        "top5_accuracy": 0.6611487333834963,
+        "mean_reciprocal_rank": 0.5304705579756496,
+        "median_rank": 2.0
+      },
+      {
+        "representation": "own_history_direction",
+        "train_firms": 425,
+        "evaluation_rows": 3904,
+        "top1_accuracy": 0.031762295081967214,
+        "top5_accuracy": 0.08990778688524591,
+        "mean_reciprocal_rank": 0.06689277386869813,
+        "median_rank": 150.0
+      }
+    ]
+  },
+  "input_hashes": {
+    "event_map": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "targets": "4afafe5b0b335d35450b8170e44829efa6735118eecec5cbe15fa9b307d6c4f9",
+    "authoritative_predictions": "07244308cb784229553e7a18152005f8c5e2876354798cd718e1b9e68cbef92d",
+    "fmp_earnings": "12ca96629621cbbfe3565aa276bb5c5b6103f1c5698ff1852d3cb4462a713270"
+  }
+}

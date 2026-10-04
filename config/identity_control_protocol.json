@@ -1,0 +1,127 @@
+{
+  "protocol_id": "callrank-identity-controls-2026-08-04",
+  "frozen_private_protocol_id": "callrank-identity-leakage-20260804-v1",
+  "scope": "Mechanism tests reported in the manuscript; no licensed text or row-level output is included.",
+  "source_call_count": 21421,
+  "text_construction": {
+    "source_field": "canonical clean-room qa_doc",
+    "character_cap": 9000,
+    "cap_order": "the 9000-character cap precedes identity masking",
+    "pre_mask_whitespace_normalization": false,
+    "mask_order": "mask capped qa_doc bytes before passage chunking",
+    "chunk_whitespace_rule": "split masked document by whitespace and join words within each passage",
+    "identity_shell_composite_recapped": false
+  },
+  "model": {
+    "name": "llmware/industry-bert-sec-v0.1",
+    "revision": "ed3f89f3cc36caf2ea744697fa51d42e07de1149",
+    "chunk_words": [128, 160, 200],
+    "chunk_overlap_words": 0,
+    "call_pooling": "equal passage mean followed by L2 normalization"
+  },
+  "head": {
+    "latest_training_outcome": "2020-12-01",
+    "pca_components": 32,
+    "ridge_alpha": 10000.0,
+    "train_and_evaluation_are_both_transformed": true,
+    "separate_head_for_each_signed_form": true
+  },
+  "full_pipeline_identity_mask": {
+    "engine": "scripts/identity_masking.py",
+    "engine_sha256": "f1a8806ca6aa0ad9fc0e8f0be16577acb7b5f30ce13fe5e444678adf46822559",
+    "variant": "broad_identity_mask_v1",
+    "global_alias_sources": [
+      "canonical, original, and source company labels in the clean-room call table",
+      "canonical, original, source, query, and stable issuer symbol labels in the clean-room call table",
+      "historical company Name values in the dated metadata registry",
+      "historical ticker Symbol values in the dated metadata registry"
+    ],
+    "call_local_alias_sources_and_priorities": {
+      "call_ticker": 120,
+      "call_issuer": 115,
+      "opening_claimed_issuer": 112,
+      "pair_speaker": 110,
+      "pair_speaker_component": 109,
+      "prepared_speaker": 108,
+      "prepared_speaker_component": 107
+    },
+    "global_alias_priorities": {
+      "global_ticker": 100,
+      "global_issuer": 95
+    },
+    "opening_claim_gate": "retain an opening-derived issuer alias only when corroborated by the historical registry or the call's own company/ticker aliases",
+    "short_ticker_rule": "one- and two-character tickers are replaced only in an explicit ticker, symbol, or exchange context",
+    "plain_single_company_rule": "ordinary-word-shaped one-token issuer aliases are matched case-sensitively",
+    "placeholders": {
+      "ISSUER": "[ISSUER]",
+      "TICKER": "[TICKER]",
+      "PERSON": "[PERSON]",
+      "ORG": "[ORG]",
+      "PRODUCT": "[PRODUCT]",
+      "NORP": "[NORP]",
+      "FAC": "[FAC]"
+    },
+    "spacy_runtime": "3.8.14",
+    "broad_ner_model": "en_core_web_sm-3.8.0",
+    "broad_ner_labels": ["PERSON", "ORG", "PRODUCT", "NORP", "FAC"],
+    "frozen_aggregate_registry_checkpoints": {
+      "global_aliases": 6001,
+      "call_local_aliases": 965051,
+      "call_local_alias_sources": 7,
+      "plain_single_company_case_sensitive_rules": 610,
+      "residual_alias_calls": 0
+    },
+    "qualification": "Automated broad named-entity masking is a stress test, not a gold-annotated guarantee that every brand or product reference is removed. Byte-identical reconstruction also requires the frozen licensed alias registries and capped source text."
+  },
+  "same_identity_shell_body_swap": {
+    "shell_template_version": "target_identity_shell_v5_strict_line_name_shape",
+    "composite_template_version": "identity_shell_plus_scrubbed_qa_v1",
+    "common_shell_fields": [
+      "canonical company",
+      "canonical ticker",
+      "current speakers in first-occurrence order"
+    ],
+    "empty_speaker_roster": "(no parsed speakers)",
+    "speaker_separator": " | ",
+    "body_preprocessing": "the frozen identity mask used by the full-pipeline control",
+    "correct_arm": "target identity shell plus target scrubbed Q&A body",
+    "donor_arm": "the byte-identical target identity shell plus a scrubbed same-month cross-sector donor body",
+    "donor_matching_algorithm": "one-to-one Hungarian assignment minimizing absolute log1p capped-Q&A-word-count distance",
+    "donor_matching_inputs": [
+      "issuer_call_id",
+      "canonical_issuer_id",
+      "canonical_sector",
+      "verified_month",
+      "qa_capped_word_count",
+      "qa_text_sha256"
+    ],
+    "cross_issuer_required": true,
+    "cross_sector_required": true,
+    "assignment_prefix": "callrank-identity-placebo-v1",
+    "assignment_seed": 20260804,
+    "hash_jitter_scale": 1e-9,
+    "hash_jitter_rule": "SHA256('callrank-identity-placebo-v1|' + target_call_id + '|' + donor_call_id)",
+    "return_data_used_for_donor_mapping": false,
+    "reported_comparison": "paired correct-minus-donor monthly rank-IC gap"
+  },
+  "evaluation": {
+    "signal_start": "2023-11-01",
+    "eligible_months": 24,
+    "minimum_sectors_per_month": 6,
+    "newey_west_rank_lag": 1,
+    "calendar_shift_draws": 20000,
+    "calendar_shift_random_seed": 20260804
+  },
+  "public_release": {
+    "aggregate_only": true,
+    "exact_aggregate_replay": true,
+    "frozen_mask_engine_source_included": true,
+    "licensed_alias_registries_required_for_byte_exact_text_rebuild": true,
+    "raw_text_included": false,
+    "firm_level_rows_included": false,
+    "donor_mapping_included": false,
+    "embeddings_included": false,
+    "predictions_included": false,
+    "holdings_included": false
+  }
+}

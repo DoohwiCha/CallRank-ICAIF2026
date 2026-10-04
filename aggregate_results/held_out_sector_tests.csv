@@ -1,0 +1,2 @@
+model,representation,training_cutoff,evaluation_start,evaluation_end,eligible_months,rank_ic,newey_west_p
+leave-one-sector-out PCA-32 + Ridge,firm_conditioned_qa_direction,2020-12-01,2023-11-01,2026-03-01,24,0.0778961901012404,0.1077182717219188

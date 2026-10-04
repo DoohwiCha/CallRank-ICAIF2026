@@ -1,0 +1,27 @@
+{
+  "angle_floor_degrees": 10.0,
+  "eligible_evaluation_months": 24,
+  "input_sha256": {
+    "capitalization": "4c2c2abedfb2730e11addebc7b2ead786ba496603d44a7dfc03a61f34bfaca54",
+    "event_map": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "prices": "9dd7e01b651bfdabbaed8eda6f25a171ef8687a672ff7471fbd9e9a21dcdb5cd",
+    "targets": "4afafe5b0b335d35450b8170e44829efa6735118eecec5cbe15fa9b307d6c4f9"
+  },
+  "inputs": {
+    "capitalization": "/licensed/pit_sector_market_caps.csv",
+    "event_map": "/licensed/cleanroom_event_map.parquet",
+    "prices": "/licensed/sector_etf_adjusted_close.csv",
+    "targets": "/private/work/derived/targets.csv"
+  },
+  "main_160_angle_first_percentile_degrees": 10.817442454666411,
+  "main_160_angle_median_degrees": 14.881078934021694,
+  "main_160_consensus_positive_month_share": 0.9583333333333334,
+  "main_160_firm_months": 3970,
+  "main_160_median_firm_to_sector_angle_degrees": 69.28150655463068,
+  "main_160_median_resultant_length": 0.34221540155193136,
+  "main_160_same_month_random_pair_cosine": 0.031045583883034977,
+  "main_160_sub_10_degree_count": 7,
+  "main_160_within_sector_pair_cosine": 0.04193191287825685,
+  "main_spread_rank_ic": 0.10037082760565695,
+  "remove_sub_10_degree_rank_ic": 0.10050092031679676
+}

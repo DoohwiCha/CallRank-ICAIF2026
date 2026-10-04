@@ -1,0 +1,43 @@
+{
+  "artifact": "CallRank aggregate review results",
+  "cost_sensitivity_bps_one_way": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "evaluation_end": "2026-06-02",
+  "evaluation_months": 24,
+  "evaluation_start": "2023-12-01",
+  "input_hashes": {
+    "capitalization": "4c2c2abedfb2730e11addebc7b2ead786ba496603d44a7dfc03a61f34bfaca54",
+    "cleanroom_event_map": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "predictions": "07244308cb784229553e7a18152005f8c5e2876354798cd718e1b9e68cbef92d",
+    "prices": "9dd7e01b651bfdabbaed8eda6f25a171ef8687a672ff7471fbd9e9a21dcdb5cd",
+    "risk_free": "786fa12dd57773c78197953dc40ac722cef374031337ed51bbce7266c2a63b01"
+  },
+  "licensed_inputs_included": false,
+  "portfolio_cost_bps_one_way": 5.0,
+  "random_sector_null": {
+    "randomizations": 2000,
+    "seed": 20260725
+  },
+  "research_boundary": "Fixed-head temporal evaluation. Sector identification is tested by monthly rank statistics before ranks are mapped into the fixed 42-trading-day Top 1 alpha implementation.",
+  "row_level_inputs_included": false,
+  "status": "PASS",
+  "tie_policy": {
+    "reported": "canonical sector-key order",
+    "sensitivity": "include every exact cutoff tie and weight tied sectors by prior-close capitalization"
+  },
+  "top1_selection": {
+    "distinct_sectors": 10,
+    "largest_sector": "Utilities",
+    "largest_sector_months": 10,
+    "largest_sector_share": 0.4166666666666667,
+    "sector_stays": 7,
+    "sector_switches": 16,
+    "signal_months": 24,
+    "switch_rate": 0.6956521739130435,
+    "transitions": 23
+  }
+}

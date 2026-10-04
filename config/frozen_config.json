@@ -1,0 +1,158 @@
+{
+  "artifact_name": "CallRank public camera-ready code and aggregate results",
+  "version": "camera-ready-fixed-head-2026-10-04",
+  "raw_text_included": false,
+  "firm_level_rows_included": false,
+  "research_boundary": "Fixed-head temporal evaluation on a clean-room call ledger. Ranking coefficients use only outcomes completed by December 1, 2020 and are not refit during the reported evaluation.",
+  "snapshot_status": "Versioned artifact for reproducing the reported fixed-head ranking, allocation, and identity-controlled mechanism tests.",
+  "unit": "sector-month",
+  "external_inputs": {
+    "call_embedding_pattern": "call_{section}_all{chunk_words}.parquet",
+    "targets": "targets.csv",
+    "adjusted_prices": "sector_etf_adjusted_close.csv",
+    "adjusted_price_source": "Yahoo Finance dividend-adjusted closes",
+    "sector_market_caps": "pit_sector_market_caps.csv",
+    "risk_free": "DGS3MO_2023-10-01_2026-06-05.csv"
+  },
+  "feature_definition": {
+    "reference": "expanding mean of the same firm's prior Q&A vectors",
+    "minimum_prior_firm_months": 2,
+    "raw_residual": "current Q&A minus prior-firm Q&A mean",
+    "full_rank_signed_form": "raw signed residual",
+    "bounded_allocation_signed_form": "L2-normalized signed residual",
+    "empirical_dominance_claim": false,
+    "sector_aggregation": "equal mean across eligible firms before model fitting",
+    "multi_resolution_ensemble": "average within-month prediction ranks from 128-, 160-, and 200-word models"
+  },
+  "feature_dimensions": 768,
+  "sections": [
+    "prepared_remarks",
+    "heuristically_extracted_qa_side_text"
+  ],
+  "section_parser_scope": "Q&A-side text may include analyst turns; the paper studies a Q&A-side contrast rather than an answer-only measure.",
+  "text_construction": {
+    "operation_order": "minimum-word filter, character cap, whitespace normalization, non-overlapping word passages",
+    "per_call_character_caps": {
+      "qa_side": 9000,
+      "prepared_remarks": 7000
+    },
+    "minimum_words_before_cap": {
+      "qa_side": 30,
+      "prepared_remarks": 50
+    }
+  },
+  "encoder": {
+    "name": "llmware/industry-bert-sec-v0.1",
+    "revision": "ed3f89f3cc36caf2ea744697fa51d42e07de1149",
+    "public_revision_date": "2023-10-16",
+    "embedding_dimension": 768,
+    "prefix_template": "Represent the semantic content of {section_label}: {text}",
+    "section_labels": {
+      "qa_side": "earnings call Q&A-side discussion",
+      "prepared_remarks": "earnings call prepared remarks"
+    }
+  },
+  "chunking": {
+    "word_chunk_sizes": [
+      128,
+      160,
+      200
+    ],
+    "overlap_words": 0,
+    "retain_final_partial_chunk": true,
+    "maximum_chunks_per_call_section": null,
+    "cross_company_chunks_allowed": false
+  },
+  "universe": {
+    "membership_source": "Licensed historical S&P 500 constituent membership",
+    "membership_is_point_in_time": true,
+    "sector_taxonomy": "GICS sectors mapped to SPDR sector ETFs",
+    "paper_mapping": "dated membership and sector records attached at the verified call date, with the major 2016, 2018, and 2023 taxonomy changes reconstructed without return data",
+    "release_exact_etf_call_share": 0.9732065687121867,
+    "firm_specific_historical_reclassifications_complete": false
+  },
+  "data_integrity": {
+    "canonical_ledger_sha256": "c3005a69b99b1ed0f2a57a94d15e45f0a803bf139529f395b225b75f8f674015",
+    "cleanroom_event_map_sha256": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "call_date_ledger_sha256": "31a93a1df99eaa037a083203583e72c39ed7022cf0878aa6082756e98953f868",
+    "cleanroom_call_ledger_sha256": "33cd64c66abd7387ef8a4b2865c2eb0fd57db452ee0e3575b8d3936427f07afb",
+    "ledger_rows": 22897,
+    "canonical_preclean_calls": 21460,
+    "canonical_usable_calls": 21421,
+    "evaluation_cleanroom_calls": 4604,
+    "evaluation_exact_official_date": 2848,
+    "evaluation_official_month": 1756,
+    "evaluation_unresolved_excluded": 27,
+    "evaluation_month_reassignments": 67,
+    "canonical_issuers": 639,
+    "sector_month_rows": 1385,
+    "complete_targets": 1358,
+    "restored_verified_calls": 34,
+    "wrong_issuer_training_calls_removed": 2,
+    "training_audit_adjudicated": 149,
+    "training_audit_sampling": "deterministic return-blind hash order, up to two calls per sector-year, prioritizing distinct issuers",
+    "training_audit_confirmed_errors": 0,
+    "training_audit_wilson_95_upper": 0.02513361787000954
+  },
+  "target": {
+    "definition": "42-trading-day sector ETF return in excess of SPY",
+    "horizon_trading_days": 42,
+    "entry_timing": "first trading day after month-end aggregation",
+    "first_common_date_rule": "strategy and SPY returns both start at zero; strategy entry costs are charged on the first common date",
+    "sector_etfs": [
+      "XLC",
+      "XLY",
+      "XLP",
+      "XLE",
+      "XLF",
+      "XLV",
+      "XLI",
+      "XLK",
+      "XLB",
+      "XLRE",
+      "XLU"
+    ],
+    "benchmark_etf": "SPY"
+  },
+  "ranking_head": {
+    "target": "within-month percentile rank of 42-day excess return, centered at zero",
+    "latest_training_outcome": "2020-12-01",
+    "standardize_features_on_training_only": true,
+    "fit_scope": "separate scaler, PCA rotation, and Ridge coefficients for every representation and passage length",
+    "shared_across_representations": false,
+    "pca_components": 32,
+    "pca_solver": "full",
+    "pca_random_state": 42,
+    "ridge_alpha": 10000.0,
+    "refit_after_training_boundary": false,
+    "provenance": "Reported PCA-32/Ridge-1e4 specification; fitted only on outcomes completed by December 1, 2020 and not refit during the reported evaluation."
+  },
+  "evaluation": {
+    "release_aligned_signal_start": "2023-11-01",
+    "release_aligned_first_entry": "2023-12-01",
+    "metric": "monthly Spearman rank information coefficient",
+    "minimum_sectors_per_month": 6,
+    "newey_west_rank_lag": 1,
+    "newey_west_daily_alpha_lag": 5,
+    "newey_west_daily_alpha_sensitivity_lag": 42,
+    "circular_shift_randomizations": 20000,
+    "circular_shift_seed": 20260724
+  },
+  "portfolio": {
+    "rule": "One argmax Top 1 monthly sleeve, with Bottom 1 and Top 1-minus-Bottom 1 reported as diagnostics",
+    "selection": "highest or lowest predicted sector score",
+    "weighting": "selected sectors' point-in-time constituent market capitalization at the prior trading close",
+    "reported_tie_policy": "canonical sector-key order fixed without returns",
+    "tie_sensitivity": "include every exact cutoff tie and weight tied sectors by prior-close capitalization",
+    "holding_days": 42,
+    "maximum_concurrent_sleeves": 3,
+    "active_sleeve_weighting": "equal capital across overlapping sleeves",
+    "one_way_cost_bps": 5.0,
+    "spread_cost_scope": "the 200% gross diagnostic spread deducts ETF turnover costs but not borrow fees or financing charges",
+    "annualization_days": 252,
+    "sharpe_risk_free": "latest strictly prior DGS3MO yield, converted to a compounded daily return"
+  },
+  "source_review_version": "review-snapshot-fixed-head-2026-08-05",
+  "release_mode": "public_camera_ready",
+  "repository_url": "https://github.com/DoohwiCha/CallRank-ICAIF2026"
+}

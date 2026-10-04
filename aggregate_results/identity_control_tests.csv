@@ -1,0 +1,9 @@
+test,representation,months,estimate,estimate_kind,newey_west_lag,newey_west_p,calendar_shift_draws,calendar_shift_p
+full_pipeline_identity_mask,raw_residual,24,0.19147190821507917,mean_monthly_rank_ic,1,0.0024031958666063118,20000,0.005949702514874256
+full_pipeline_identity_mask,unit_direction,24,0.18317187804517912,mean_monthly_rank_ic,1,0.0007036732147919635,20000,0.0038498075096245186
+correct_masked_body,raw_residual,24,0.13833637976618604,mean_monthly_rank_ic,1,0.018240087382669665,,
+correct_masked_body,unit_direction,24,0.12259544949502317,mean_monthly_rank_ic,1,0.023201826465473276,,
+wrong_body_donor,raw_residual,24,-0.05692117708882669,mean_monthly_rank_ic,1,0.4056979568015978,,
+wrong_body_donor,unit_direction,24,-0.05395103409270826,mean_monthly_rank_ic,1,0.4323752477235936,,
+paired_correct_minus_donor,raw_residual,24,0.19525755685501278,paired_monthly_rank_ic_gap,1,0.019554851891726847,,
+paired_correct_minus_donor,unit_direction,24,0.17654648358773145,paired_monthly_rank_ic_gap,1,0.026687724286546203,,

@@ -1,0 +1,56 @@
+{
+  "generated_at": "2026-07-27",
+  "input_sha256": {
+    "ledger": "31a93a1df99eaa037a083203583e72c39ed7022cf0878aa6082756e98953f868",
+    "event_map": "7317847642c236f3da2849baf17609a86032edd3e2957564178704f8f3a44927",
+    "sections": "2189cc040cf4a346aa203f29bc9bfeeaa08d6c6a0050ee14abf3d245a217d577",
+    "external_audit": "df0f73eefd72da89e632ef911d4f260f82fb3f2fc2accf4cd9fa7c3d59528f72",
+    "embedding_audit": "33c6f140f14344eb5fdff883590b571856a2f042e25ee4ca1d8631eab4f5ab6e",
+    "manual_decisions": "1ed6ae6bcb350311af78ca0f13cfef5de838a18a8818ef163b9ad46d4e3c8028"
+  },
+  "population": {
+    "ledger_calls": 22897,
+    "canonical_preclean_usable": 21460,
+    "evaluation_preclean_usable": 4631,
+    "cleanroom_usable": 21421,
+    "evaluation_cleanroom_usable": 4604,
+    "evaluation_external_fail": 0,
+    "evaluation_external_unresolved": 27,
+    "evaluation_call_date_exact": 2848,
+    "evaluation_call_date_month_confirmed": 1756,
+    "evaluation_call_date_unresolved": 0,
+    "evaluation_month_changed_from_legacy": 67,
+    "automatic_review_candidates": 546
+  },
+  "training_stratified_audit": {
+    "sample_rows": 160,
+    "adjudicated_rows": 149,
+    "confirmed_errors": 0,
+    "error_rate": 0.0,
+    "wilson_95_low": 1.734723475976807e-18,
+    "wilson_95_high": 0.02513361787000954
+  },
+  "coverage_and_sections": {
+    "canonical_issuers": 639,
+    "fiscal_sequence_gaps": 1696,
+    "fiscal_periods_missing_inside_observed_sequences": 2654,
+    "qa_fallback_calls": 2287,
+    "evaluation_sector_months": 292,
+    "evaluation_minimum_firms_per_sector_month": 1,
+    "evaluation_median_firms_per_sector_month": 13.0,
+    "evaluation_single_firm_sector_months": 18
+  },
+  "invariants": {
+    "raw_content_hash_mismatches": 0,
+    "section_hash_mismatches": 0,
+    "usable_embedding_key_missing": 0,
+    "usable_embedding_input_mismatches": 0
+  },
+  "output_sha256": {
+    "all_call_integrity_audit.parquet": "aee4d69030abc277711a9f87ce4fd25ea27d80a6249832f26e69f552be1b0347",
+    "all_call_review_candidates.csv": "a8b515943faea3a7a89aa525db40fd12c9f694739f554919dd444ea9c47aba27",
+    "cleanroom_call_ledger.parquet": "33cd64c66abd7387ef8a4b2865c2eb0fd57db452ee0e3575b8d3936427f07afb",
+    "cleanroom_event_map.parquet": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "cleanroom_call_sections.parquet": "5434a52d94daa25dc478e045df01ed4f3c59052fdb2caa3c1f4c0a0b8d2f33cc"
+  }
+}

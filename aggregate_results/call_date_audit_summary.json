@@ -1,0 +1,31 @@
+{
+  "generated_at": "2026-07-27",
+  "input_sha256": {
+    "ledger": "c3005a69b99b1ed0f2a57a94d15e45f0a803bf139529f395b225b75f8f674015",
+    "external_audit": "df0f73eefd72da89e632ef911d4f260f82fb3f2fc2accf4cd9fa7c3d59528f72",
+    "manual_decisions": "1ed6ae6bcb350311af78ca0f13cfef5de838a18a8818ef163b9ad46d4e3c8028",
+    "reused_extraction": "ee421a52e9adfe7b31f90700a210e1204f44f064429a850c80db732a025fd91c"
+  },
+  "population": {
+    "ledger_calls": 22897,
+    "external_audit_calls": 4823,
+    "evaluation_after_date_audit": 4635,
+    "evaluation_entered_after_date_audit": 3,
+    "evaluation_left_after_date_audit": 0
+  },
+  "verification": {
+    "pass_exact": 2946,
+    "pass_month": 1837,
+    "review": 37,
+    "fail": 3,
+    "source_vs_legacy_month_conflicts": 70,
+    "unresolved_evaluation_month_conflicts": 0,
+    "official_schedule_candidates": 3262
+  },
+  "output_sha256": {
+    "external_call_date_audit.parquet": "ee421a52e9adfe7b31f90700a210e1204f44f064429a850c80db732a025fd91c",
+    "external_call_date_audit.csv": "991078fcf08b2c736c2026d7a4e7cdd4bcbc6f8b7b2bea51a7a2744b5f75adb8",
+    "call_date_ledger.parquet": "31a93a1df99eaa037a083203583e72c39ed7022cf0878aa6082756e98953f868",
+    "month_boundary_adjudication.csv": "cbb318329a7686fb0048edfaf63e380b20967571ec039087938a0e49f4182be3"
+  }
+}

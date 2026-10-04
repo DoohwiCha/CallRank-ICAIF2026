@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-07-27",
+  "research_boundary": "All corrections and duplicate priorities use transcript, calendar, membership, sector, and content metadata only; no return is read.",
+  "source_rows": 22897,
+  "strict_date_usable": 21799,
+  "identity_remap_rows": 89,
+  "identity_excluded_rows": 232,
+  "canonical_before_dedup": 21595,
+  "duplicate_rows_removed": 135,
+  "canonical_usable": 21460,
+  "official_event_override_rows": 34,
+  "canonical_release_calls": 4628,
+  "canonical_issuers": 639,
+  "canonical_months": 162,
+  "no_remap_usable": 21416,
+  "release_exact_etf_usable": 21292,
+  "all_exact_etf_usable": 10621,
+  "release_exact_etf_coverage": 0.9732065687121867,
+  "identity_rule_summary": {
+    "rule_count": 44,
+    "total_matches": 273
+  },
+  "duplicate_reason_counts": {
+    "duplicate_content": 120,
+    "duplicate_fiscal_period": 15
+  },
+  "sha256": {
+    "strict_event_map": "bf174b0ac1e3253431b87bec7cd88a0f38d1f6954c0cb303f6f64561078f7547",
+    "call_audit": "5e490acd441539e0e13d734d9418f023e32381d9eefddfa226d3eea293c3a236",
+    "call_sections": "604ce537f2db97e2c3fb2028ad0c931cd942974a725e6e864c39d8869ecedeae",
+    "etf_sectors": "da74111dbba611d92dc25becb2a032f0e4800257f3731f0f482e8c8424c48f9d",
+    "canonical_ledger": "c3005a69b99b1ed0f2a57a94d15e45f0a803bf139529f395b225b75f8f674015",
+    "canonical_event_map": "7317847642c236f3da2849baf17609a86032edd3e2957564178704f8f3a44927",
+    "no_remap_event_map": "a03a64870be3dea812714d60fe723f570af3dabe40c14db0e8ec2634402fc521",
+    "release_exact_etf_event_map": "6ede1ef9487827539da3701e81f0dfc8b00aa8f5e9511766b4a5cacd8a276f72",
+    "all_exact_etf_event_map": "ffb7415e9a9b2e7e8888810200fbe2c7c46e9b1833f6361e5de8d25c4bac76e0"
+  }
+}

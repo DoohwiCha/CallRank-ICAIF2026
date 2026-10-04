@@ -1,0 +1,40 @@
+{
+  "release_mode": "public_camera_ready",
+  "repository_url": "https://github.com/DoohwiCha/CallRank-ICAIF2026",
+  "paper_id": 682,
+  "paper_title": "CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha",
+  "conference": "ICAIF 2026",
+  "authors": [
+    "Doohwi Cha",
+    "Minsuk Sung",
+    "Seunghan Son",
+    "Juyeong Lee",
+    "Donghwa Seo",
+    "Minjae Lee",
+    "Hyeonjun Yeo",
+    "Yoontae Hwang"
+  ],
+  "maintainer_git_names": [
+    "Doohwi Cha",
+    "DoohwiCha"
+  ],
+  "maintainer_git_emails": [
+    "91770960+DoohwiCha@users.noreply.github.com"
+  ],
+  "source_review_version": "review-snapshot-fixed-head-2026-08-05",
+  "source_review_commit": "8d5cfb09fa274317918b23aa15a2904c5eda792c",
+  "scientific_results_changed": false,
+  "raw_text_included": false,
+  "firm_level_rows_included": false,
+  "doi": "",
+  "isbn": "",
+  "public_reproduction": {
+    "boundary": "train-only standardized sector-month Gram sufficient statistics",
+    "refitted_raw_unit_heads": 6,
+    "public_data_files": 11,
+    "training_sector_months": 703,
+    "evaluation_sector_months": 265,
+    "predictions_or_coefficients_are_inputs": false,
+    "upstream_encoder_and_firm_features_require_licensed_inputs": true
+  }
+}

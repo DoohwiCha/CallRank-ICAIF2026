@@ -1,0 +1,205 @@
+{
+  "format_version": 1,
+  "snapshot": "accepted-v11-fixed-head",
+  "data_boundary": "Author-created sector-month Gram sufficient statistics, numerical target labels, normalized ETF total-return indices, public factor series, and Treasury yields. No call text, issuer identifiers, firm embeddings, portfolio holdings, or capitalization observations are included. Upstream text/identity/embedding regeneration requires separately obtained licensed inputs. These informative similarity matrices are not claimed to guarantee irreversibility.",
+  "construction": {
+    "training_standardization": "Feature-wise training-only mean and population standard deviation, followed by training-only PCA centering.",
+    "train_gram": "A_train @ A_train.T",
+    "eval_train_gram": "A_eval @ A_train.T",
+    "public_refit": "Leading 32 train-Gram eigenvectors/eigenvalues and centered training target ranks give the mathematically equivalent PCA/Ridge fitted score; no precomputed scores or fitted Ridge coefficients are inputs.",
+    "target": "Within-month percentile rank of complete 42-trading-day ETF-minus-SPY returns, minus 0.5.",
+    "market_indices": "Each frozen dividend-adjusted ETF series divided by its own first finite positive value. Returns and all price-ratio signals are invariant to this rebase.",
+    "selection_weights": "A single selected ETF has weight one under either capitalization or equal weighting; no capitalization data are needed for canonical Top 1/Bottom 1."
+  },
+  "fixed_settings": {
+    "pca_components": 32,
+    "ridge_alpha": 10000.0,
+    "latest_training_outcome": "2020-12-01",
+    "evaluation_signal_start": "2023-11-01",
+    "minimum_scored_sectors": 6,
+    "holding_trading_days": 42,
+    "one_way_cost_bps": 5.0,
+    "annualization_days": 252
+  },
+  "source_provenance": {
+    "accepted_event_map_sha256": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "accepted_target_snapshot_sha256": "4afafe5b0b335d35450b8170e44829efa6735118eecec5cbe15fa9b307d6c4f9",
+    "market_snapshot_sha256": "9dd7e01b651bfdabbaed8eda6f25a171ef8687a672ff7471fbd9e9a21dcdb5cd",
+    "market_source": "Yahoo Finance dividend-adjusted closes, transformed by authors to dimensionless total-return indices",
+    "market_source_url": "https://finance.yahoo.com/",
+    "factor_source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html",
+    "treasury_source_url": "https://fred.stlouisfed.org/series/DGS3MO"
+  },
+  "files": {
+    "raw_128.npz": {
+      "sha256": "6a486f9cc6a3455fafdd28435d4b1306e881c48a0f2d74671a22359ddb27bab0",
+      "bytes": 5205957,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_raw",
+      "passage_words": 128
+    },
+    "unit_128.npz": {
+      "sha256": "32ab543abee536f2d0e6804ccefe5f11bf1e106bcfef84c81f4418a1b2e6720e",
+      "bytes": 5206072,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_direction",
+      "passage_words": 128
+    },
+    "raw_160.npz": {
+      "sha256": "dcaed8da0eee2625d260e39cd8a052ccd52f9b5303aa33840d995b8da2b3bd10",
+      "bytes": 5206013,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_raw",
+      "passage_words": 160
+    },
+    "unit_160.npz": {
+      "sha256": "6bb017d9698c1114ee914fa9a95cf397eb0df60afc30c5f9cfe3fc3edad00cd9",
+      "bytes": 5205745,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_direction",
+      "passage_words": 160
+    },
+    "raw_200.npz": {
+      "sha256": "771be5d5952885db5700bfd3e8cb39134d1e0ae8f561ec32fce25be7a67ac790",
+      "bytes": 5205995,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_raw",
+      "passage_words": 200
+    },
+    "unit_200.npz": {
+      "sha256": "4932087df71767f467ac0617d3c4a86e4e14ca101dd4f4d00de2553dd8d706d9",
+      "bytes": 5205781,
+      "arrays": {
+        "train_gram": [
+          703,
+          703
+        ],
+        "eval_train_gram": [
+          265,
+          703
+        ]
+      },
+      "dtype": "float64",
+      "representation": "firm_conditioned_qa_direction",
+      "passage_words": 200
+    },
+    "train_keys.csv": {
+      "sha256": "a79551ad89edb0419705291007c578cf3ae1d913019a45254f0a2dcfde98d400",
+      "bytes": 48525,
+      "rows": 703,
+      "columns": [
+        "sector",
+        "month",
+        "entry_date",
+        "exit_date",
+        "excess_return"
+      ]
+    },
+    "eval_keys.csv": {
+      "sha256": "6ecf898b3b80eab5cb5aab012e6fbbf2723105c2e94a481f99342babbaffdaf0",
+      "bytes": 18410,
+      "rows": 265,
+      "columns": [
+        "sector",
+        "month",
+        "entry_date",
+        "exit_date",
+        "excess_return"
+      ]
+    },
+    "sector_total_return_indices.csv": {
+      "sha256": "e5f59d40097eae0b3bcad82087f04500e5cd5df8752a210470b01ccb9172b828",
+      "bytes": 786675,
+      "rows": 3474,
+      "columns": [
+        "Date",
+        "SPY",
+        "XLB",
+        "XLC",
+        "XLE",
+        "XLF",
+        "XLI",
+        "XLK",
+        "XLP",
+        "XLRE",
+        "XLU",
+        "XLV",
+        "XLY"
+      ]
+    },
+    "daily_factors.csv": {
+      "sha256": "017bf65cce388af90d2580b419bf58a958c5b6e2bc8ccd9f9694147bc7a57bff",
+      "bytes": 90064,
+      "rows": 624,
+      "columns": [
+        "date",
+        "MKT_RF",
+        "SMB",
+        "HML",
+        "RMW",
+        "CMA",
+        "MOM",
+        "RF"
+      ]
+    },
+    "DGS3MO.csv": {
+      "sha256": "a5e50f9a14ff7e4cd59ec43b1a72b93ae0241c68a03c24bb74364fb994d6d00f",
+      "bytes": 19136,
+      "rows": 700,
+      "columns": [
+        "observation_date",
+        "DGS3MO"
+      ]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+# Exact environment used to validate and regenerate this public release.
+numpy==2.5.1
+pandas==3.0.5
+pyarrow==24.0.0
+scipy==1.18.0
+scikit-learn==1.8.0
+statsmodels==0.14.6
+matplotlib==3.10.9
