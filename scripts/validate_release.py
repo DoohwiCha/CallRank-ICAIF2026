@@ -19,6 +19,7 @@ from common import load_config, rank_summary, save_json
 from portfolio import strategy_summary
 from recompute_published_results import verify_aggregate
 from callrank_features import RAW_DISPLACEMENT, UNIT_DIRECTION
+from recompute_unsigned_diagnostic import verify as verify_unsigned_diagnostic
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -489,6 +490,21 @@ def package_checks(aggregate_dir: Path) -> list[dict[str, Any]]:
             and metadata.get("repository_url") == "https://github.com/DoohwiCha/CallRank-ICAIF2026"
             and len(metadata.get("authors", [])) == 8
             and metadata.get("scientific_results_changed") is False)
+        diagnostic = metadata.get("post_review_unsigned_diagnostic", {})
+        add(checks, "post-review diagnostic declares its separate score-replay boundary",
+            diagnostic.get("known_evaluation_period") is True
+            and diagnostic.get("new_independent_holdout") is False
+            and diagnostic.get("public_replay_refits_unsigned_heads") is False
+            and diagnostic.get("p_values_adjusted_for_multiplicity") is False
+            and metadata.get("scientific_results_changed_scope") == "original accepted-snapshot outputs")
+        try:
+            replay = verify_unsigned_diagnostic(
+                ROOT / "diagnostics" / "unsigned_displacement_20261011", 1e-12)
+            add(checks, "post-review diagnostic scores, IC, paired tests and shift paths reproduce",
+                replay["status"] == "PASS",
+                {key: replay[key] for key in ("numeric_comparisons", "maximum_numeric_error", "shift_paths_recomputed")})
+        except (ValueError, KeyError, OSError) as error:
+            add(checks, "post-review diagnostic scores, IC, paired tests and shift paths reproduce", False, str(error))
     findings = text_findings()
     add(
         checks,

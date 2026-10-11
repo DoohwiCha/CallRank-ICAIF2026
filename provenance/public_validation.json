@@ -29,5 +29,25 @@
   "figures_regenerated_byte_identical": 10,
   "network_required_for_numerical_replay": false,
   "private_correction_outputs_or_production_inputs_published": false,
-  "public_package_checks_passed": 61
+  "public_package_checks_passed": 61,
+  "post_review_unsigned_diagnostic": {
+    "added": "2026-10-11",
+    "status": "PASS",
+    "known_evaluation_period": true,
+    "new_independent_holdout": false,
+    "unadjusted_p_values": true,
+    "public_score_replay_only": true,
+    "prediction_rows": 3975,
+    "ensemble_rows": 1325,
+    "monthly_ic_rows": 120,
+    "shift_paths_recomputed": 100000,
+    "numeric_comparisons": 36,
+    "maximum_numeric_error": 0.0,
+    "public_replay_refits_unsigned_heads": false,
+    "original_signed_aggregate_and_public_inputs_unchanged": true,
+    "public_repository_synchronized": true
+  },
+  "current_public_package_checks_passed": 63,
+  "current_public_package_checks_total": 63,
+  "public_sync_scope": "Current reviewer-revision snapshot before corresponding-author Overleaf finalization."
 }

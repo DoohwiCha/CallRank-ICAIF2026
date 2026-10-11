@@ -12,24 +12,24 @@
       "bytes": 832
     },
     "CODE_AND_DATA_NOTICE.md": {
-      "sha256": "d0a1c4b3e69d99d51649f15e30a575a758d45a77acae4e248653a8af02da8fe1",
-      "bytes": 2494
+      "sha256": "8d609c67ef6b22c463fdb40732d084edbabd746cf0fc1c730ce12bc65a8ebcd0",
+      "bytes": 3033
     },
     "LICENSE": {
       "sha256": "e03418135c98d18f0a1b90745c084eea243fdd0f55515546cbf1eb53457087ed",
       "bytes": 1207
     },
     "PUBLIC_RELEASE.json": {
-      "sha256": "6a78726644e0bf110706402835806038ad50a918245d6125a93f9ed039d59b7a",
-      "bytes": 1250
+      "sha256": "684a9ba8a363b07f4fceea4788e62b71a87d046d54d228903876b693e283cfad",
+      "bytes": 2782
     },
     "README.md": {
-      "sha256": "6e77fe482fdfe83293ca28b089cdafa67a32a0a8a5ed652e3b74f580ad1252e0",
-      "bytes": 12919
+      "sha256": "7cccaf56a765a16d894ec735cb55b92245708e62692b06b7d68e67b000d82276",
+      "bytes": 15331
     },
     "RELEASE_STATUS.json": {
-      "sha256": "ab18edc0f0a34591a86732cf8fcb00f56a30a55e2dd63ba94c5fe292b2c28a05",
-      "bytes": 650
+      "sha256": "3baa4ed787589797074ffad1bb9f1e1c755f533ecee911ca4e17163dd4d27e30",
+      "bytes": 1373
     },
     "aggregate_results/README.md": {
       "sha256": "d35429e659f9d5b7f201f148dae8751d694aa87ee32396fc6c4b0a710bb04cb3",
@@ -275,9 +275,73 @@
       "sha256": "9ce85e46df5639138e2b461467944ae6594e450f047720b647317f42767a80ba",
       "bytes": 10826
     },
+    "diagnostics/unsigned_displacement_20261011/README.md": {
+      "sha256": "aaeb725fca35a4b0c4cfe497bf5a6fe6dd98e9cf35025e1b24353ddf33e682c5",
+      "bytes": 3641
+    },
+    "diagnostics/unsigned_displacement_20261011/angular_monthly_ic.csv": {
+      "sha256": "2bed4e17825648d641a13d3166530adc7a2bcd8f3ec4304feccb5c920fbe9519",
+      "bytes": 1236
+    },
+    "diagnostics/unsigned_displacement_20261011/ensemble_predictions.csv": {
+      "sha256": "2cf750882f55b1c2511b06471ad73bbba0cc11102d92eeb879017443ffd02f67",
+      "bytes": 139850
+    },
+    "diagnostics/unsigned_displacement_20261011/fit_audit.csv": {
+      "sha256": "beb89cdbc1366cdccc357889e2d72c2428cb6419281d5a8bcc6020866c971afb",
+      "bytes": 1400
+    },
+    "diagnostics/unsigned_displacement_20261011/manifest.json": {
+      "sha256": "c53ca33e5b14c81de9861335f475843edca99f581b283d14b2bedd397b690bc3",
+      "bytes": 3430
+    },
+    "diagnostics/unsigned_displacement_20261011/monthly_ics.csv": {
+      "sha256": "f30de89b87400e9be339901e8f0192304f41ff72b58bd36446a5210e1002dfea",
+      "bytes": 6168
+    },
+    "diagnostics/unsigned_displacement_20261011/paired_ic_tests.csv": {
+      "sha256": "677887ede11aa38a4ee447177537e5ded687522e3ca389067a120779e9a325a0",
+      "bytes": 1073
+    },
+    "diagnostics/unsigned_displacement_20261011/predictions_by_chunk.csv": {
+      "sha256": "5598ce6da107f02d46d5377333fdd67e5f7de521dd45e5fd256f801ab391ecd8",
+      "bytes": 539783
+    },
+    "diagnostics/unsigned_displacement_20261011/protocol.json": {
+      "sha256": "be8a2499798e0201297cf48b58ff879d20f59ef704c04ed83edbf55ff4e201dc",
+      "bytes": 4825
+    },
+    "diagnostics/unsigned_displacement_20261011/rank_summary.csv": {
+      "sha256": "2afb9ccb4235e61940e8f63880322fc1a49d644631c4cae40b75e03628ef98b2",
+      "bytes": 4773
+    },
+    "diagnostics/unsigned_displacement_20261011/run_summary.json": {
+      "sha256": "2488893170a10b1fbbf09d2ec861a48132910b9b66bcc05d9935ec15cdfa901f",
+      "bytes": 592
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_firm_conditioned_qa_direction.csv": {
+      "sha256": "566af43a77bce1f700f942b5d91ea3fa5b82036dcb6266e41ad4bca61b2e5fff",
+      "bytes": 521894
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_firm_conditioned_qa_raw.csv": {
+      "sha256": "ffc21c962cd85e78c709bb6df5ec9d8b3804072f4d8e5fb19df540df448b6f23",
+      "bytes": 514578
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_raw_pca1.csv": {
+      "sha256": "8d3f29e0b4fb3c3de261fd458a432477b5d2a1c9a0815466b81630d575793455",
+      "bytes": 524338
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_unsigned_raw.csv": {
+      "sha256": "a2d35c8d4f17cd129044920eb6f5ff0cf91d8c66bd63a43bda3a56cfecd1fb4f",
+      "bytes": 519149
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_unsigned_unit.csv": {
+      "sha256": "cf39abbfa4813e145fef1f20711b71a343fa928a245b99f65c7e0f0a2b84aaca",
+      "bytes": 524325
+    },
     "provenance/public_validation.json": {
-      "sha256": "09423d7f609ed5e94485fae43bd9d6ec5ffbdaa666409c4bbb774927b0e6cc43",
-      "bytes": 1315
+      "sha256": "3eb27ef5fe18bfd81b1f57dac89b73a46c47f2540051aeed1224b34db0302a2e",
+      "bytes": 2104
     },
     "public_inputs/DGS3MO.csv": {
       "sha256": "a5e50f9a14ff7e4cd59ec43b1a72b93ae0241c68a03c24bb74364fb994d6d00f",
@@ -403,6 +467,10 @@
       "sha256": "9a7327920dfb328b1d70e0e650d8b76072a6a72ed6f4e1a9f464189ad3f52b94",
       "bytes": 34852
     },
+    "scripts/recompute_unsigned_diagnostic.py": {
+      "sha256": "d3fa93b01b1f027a1db05587ebf2b166f3cca63d0bfa00dd381f752bca80da81",
+      "bytes": 10004
+    },
     "scripts/reproduce_public_inputs.py": {
       "sha256": "1a2fbf39fe71b601e52ec3fc87972af5c90d7dccf3bab94418255278242d4804",
       "bytes": 23146
@@ -428,8 +496,8 @@
       "bytes": 5024
     },
     "scripts/validate_release.py": {
-      "sha256": "2d083ff98d64f6e0db433989ccb0f913b2474141393add5a0350a3b13440361d",
-      "bytes": 35559
+      "sha256": "dc45825f15c7ee9441fb09f084fead28ecd70b22f590b8e47fdbaddd0b02e9ed",
+      "bytes": 36779
     },
     "tests/test_frozen_identity_masker.py": {
       "sha256": "51779e434473cfdcec57022a54b4e459c5bc5f4ad5e6fb07e1bb8ed9e559b85d",
@@ -447,5 +515,9 @@
       "sha256": "082bd669bae24ada2b08b70479ccf74d4b5c455e47ad97ac559762f0080e7d89",
       "bytes": 2149
     }
-  }
+  },
+  "post_review_diagnostic_added": true,
+  "original_input_boundary_unchanged": true,
+  "diagnostic_input_boundary": "Separate known-period sector-score replay; unsigned heads are not refit publicly",
+  "public_repository_synchronized": false
 }

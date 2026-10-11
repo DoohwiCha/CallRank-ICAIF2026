@@ -39,3 +39,11 @@ and hashes. `scripts/reproduce_public_inputs.py` additionally refits the heads
 and recomputes ranking and allocation from public sufficient statistics.
 Transcript-to-feature reconstruction requires the conforming licensed inputs
 described in `data/README.md`.
+
+The separate `diagnostics/unsigned_displacement_20261011/` addendum contains
+sector-level model scores and targets, aggregate monthly ICs, paired statistics,
+and calendar-shift distributions for a known-period post-review diagnostic.
+These are derived research outputs, subject to the same underlying market-data
+boundary. Its replay recalculates statistics from the released scores; it does
+not refit the unsigned heads or reconstruct licensed firm-level features.
+The original six-head sufficient-statistic refit workflow is unchanged.

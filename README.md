@@ -9,13 +9,20 @@ Juyeong Lee, Donghwa Seo, Minjae Lee, Hyeonjun Yeo, and Yoontae Hwang**.
 
 Public repository: <https://github.com/DoohwiCha/CallRank-ICAIF2026>.
 
+Current version: the October 11, 2026 reviewer revision, before the
+corresponding author finalizes the manuscript in Overleaf. It includes the
+unsigned diagnostic below and retains the accepted-snapshot numerical outputs.
+The snapshot hashes are recorded in `PUBLIC_RELEASE.json`; later manuscript
+changes will be synchronized separately. ACM/TAPS production is pending.
+
 This repository contains the public implementation, fixed configuration,
 aggregate results, public sufficient-statistic replay inputs, input contracts,
 and synthetic tests. It is a named
 camera-ready release of the accepted manuscript's current review artifact,
 whose reported experiment uses 24 eligible post-release signal decisions.
-The frozen numerical configuration and all released empirical tables,
-strategy paths, and figures are retained. Private development history and
+The original frozen numerical configuration, empirical tables, strategy paths,
+and figures are retained. A separate post-review diagnostic addendum releases
+unsigned-displacement comparisons. Private development history and
 raw calls and licensed firm-level input records are excluded.
 
 The package contains no credential, raw transcript, call or firm record,
@@ -43,8 +50,9 @@ Raw displacement tests the complete signed movement in the full sector order.
 Unit direction bounds each issuer's contribution before sector aggregation and
 supplies the reported allocation. Their paired IC difference is not
 statistically significant, so the artifact does not treat either signed form
-as empirically dominant. Scalar angular distance is the matched unsigned
-comparison.
+as empirically dominant. Scalar angular distance is the movement-size control;
+the separate diagnostic below also compares signed and element-wise unsigned
+vectors with the same 32-PC head.
 
 The reported allocation maps each monthly unit-direction ranking to one
 argmax sector. Each monthly Top 1 sleeve remains open for 42 trading days.
@@ -86,11 +94,46 @@ reference implementation; it is not claimed to recreate the manuscript's
 masked corpus byte for byte. The released 24-month ICs and 20,000-draw nulls
 are the exact offline replay of the reported identity-control results.
 
+## Post-review unsigned-displacement diagnostic
+
+[`diagnostics/unsigned_displacement_20261011/`](diagnostics/unsigned_displacement_20261011/)
+contains a diagnostic on the already observed evaluation period. Before sector
+averaging, each firm's signed displacement `d` is replaced by `abs(d)`, or its
+unit direction `u` by `abs(u)`, element by element in the fixed encoder basis.
+Both signed/unsigned comparisons retain the same 32-PC/Ridge head specification.
+The addendum also retains a one-PC raw-displacement diagnostic.
+
+| Ensemble | IC | NW(1) p | NW(2) p | Calendar-shift p |
+| --- | ---: | ---: | ---: | ---: |
+| Signed raw | .158 | .007 | .002 | .044 |
+| Unsigned raw | -.023 | .795 | .794 | .877 |
+| Signed unit | .100 | .055 | .030 | .099 |
+| Unsigned unit | .031 | .711 | .686 | .389 |
+| Signed raw, one PC | .017 | .750 | .698 | .430 |
+
+The raw-minus-unsigned paired gap is .181 (NW(1) p=.032; NW(2) p=.038;
+conventional paired t p=.065). The unit-minus-unsigned gap is .070
+(NW(1) p=.527; NW(2) p=.489; paired t p=.525). All p-values are unadjusted.
+This is a post-review diagnostic with 24 eligible months, not a new holdout or
+independent confirmation. The protocol was frozen locally before these new
+fits; this does not constitute an external preregistration.
+
+The public addendum supplies sector-level passage-model scores, ensemble scores,
+monthly ICs, all five 20,000-path shift distributions, and paired results.
+Its replay **recomputes statistics from scores**; it does not refit unsigned heads
+or reconstruct firm features. The original six-head raw/unit sufficient-statistic
+refit remains a separate workflow. No transcript or firm embedding is added.
+
+```bash
+python scripts/recompute_unsigned_diagnostic.py
+```
+
 ## Repository layout
 
 ```text
 aggregate_results/       Aggregate tables, daily strategy paths, and figures
 config/                  Frozen model, evaluation, and identity-test settings
+diagnostics/              Separately scoped post-review score replay
 data/README.md           Licensed-input schemas and clean-room boundary
 public_inputs/           Sector-level sufficient statistics and replay market inputs
 scripts/                 Feature, target, model, portfolio, and audit code
@@ -132,6 +175,7 @@ python -m pip install -r requirements-validation.txt
 python scripts/reproduce_public_inputs.py
 python scripts/build_manuscript_figures.py
 python scripts/recompute_published_results.py
+python scripts/recompute_unsigned_diagnostic.py
 python scripts/validate_release.py
 python -m unittest discover -s tests -v
 ```

@@ -1,0 +1,75 @@
+{
+  "schema": "callrank.unsigned_diagnostic.public_score_replay.v1",
+  "scope": "Known-period post-review diagnostic; unadjusted inference; no new independent holdout",
+  "data_boundary": "sector-level model scores and targets; aggregate IC and null paths only",
+  "firm_level_rows_included": false,
+  "transcripts_or_firm_embeddings_included": false,
+  "refits_unsigned_heads": false,
+  "original_six_signed_head_refit_workflow_changed": false,
+  "files": {
+    "diagnostics/unsigned_displacement_20261011/README.md": {
+      "sha256": "aaeb725fca35a4b0c4cfe497bf5a6fe6dd98e9cf35025e1b24353ddf33e682c5",
+      "bytes": 3641
+    },
+    "diagnostics/unsigned_displacement_20261011/angular_monthly_ic.csv": {
+      "sha256": "2bed4e17825648d641a13d3166530adc7a2bcd8f3ec4304feccb5c920fbe9519",
+      "bytes": 1236
+    },
+    "diagnostics/unsigned_displacement_20261011/ensemble_predictions.csv": {
+      "sha256": "2cf750882f55b1c2511b06471ad73bbba0cc11102d92eeb879017443ffd02f67",
+      "bytes": 139850
+    },
+    "diagnostics/unsigned_displacement_20261011/fit_audit.csv": {
+      "sha256": "beb89cdbc1366cdccc357889e2d72c2428cb6419281d5a8bcc6020866c971afb",
+      "bytes": 1400
+    },
+    "diagnostics/unsigned_displacement_20261011/monthly_ics.csv": {
+      "sha256": "f30de89b87400e9be339901e8f0192304f41ff72b58bd36446a5210e1002dfea",
+      "bytes": 6168
+    },
+    "diagnostics/unsigned_displacement_20261011/paired_ic_tests.csv": {
+      "sha256": "677887ede11aa38a4ee447177537e5ded687522e3ca389067a120779e9a325a0",
+      "bytes": 1073
+    },
+    "diagnostics/unsigned_displacement_20261011/predictions_by_chunk.csv": {
+      "sha256": "5598ce6da107f02d46d5377333fdd67e5f7de521dd45e5fd256f801ab391ecd8",
+      "bytes": 539783
+    },
+    "diagnostics/unsigned_displacement_20261011/protocol.json": {
+      "sha256": "be8a2499798e0201297cf48b58ff879d20f59ef704c04ed83edbf55ff4e201dc",
+      "bytes": 4825
+    },
+    "diagnostics/unsigned_displacement_20261011/rank_summary.csv": {
+      "sha256": "2afb9ccb4235e61940e8f63880322fc1a49d644631c4cae40b75e03628ef98b2",
+      "bytes": 4773
+    },
+    "diagnostics/unsigned_displacement_20261011/run_summary.json": {
+      "sha256": "2488893170a10b1fbbf09d2ec861a48132910b9b66bcc05d9935ec15cdfa901f",
+      "bytes": 592
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_firm_conditioned_qa_direction.csv": {
+      "sha256": "566af43a77bce1f700f942b5d91ea3fa5b82036dcb6266e41ad4bca61b2e5fff",
+      "bytes": 521894
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_firm_conditioned_qa_raw.csv": {
+      "sha256": "ffc21c962cd85e78c709bb6df5ec9d8b3804072f4d8e5fb19df540df448b6f23",
+      "bytes": 514578
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_raw_pca1.csv": {
+      "sha256": "8d3f29e0b4fb3c3de261fd458a432477b5d2a1c9a0815466b81630d575793455",
+      "bytes": 524338
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_unsigned_raw.csv": {
+      "sha256": "a2d35c8d4f17cd129044920eb6f5ff0cf91d8c66bd63a43bda3a56cfecd1fb4f",
+      "bytes": 519149
+    },
+    "diagnostics/unsigned_displacement_20261011/shift_null_unsigned_unit.csv": {
+      "sha256": "cf39abbfa4813e145fef1f20711b71a343fa928a245b99f65c7e0f0a2b84aaca",
+      "bytes": 524325
+    },
+    "scripts/recompute_unsigned_diagnostic.py": {
+      "sha256": "d3fa93b01b1f027a1db05587ebf2b166f3cca63d0bfa00dd381f752bca80da81",
+      "bytes": 10004
+    }
+  }
+}

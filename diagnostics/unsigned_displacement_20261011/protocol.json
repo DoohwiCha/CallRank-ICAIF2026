@@ -1,0 +1,100 @@
+{
+  "boundary": "Post-review diagnostic on the already observed accepted-snapshot evaluation period; not a new holdout or confirmatory validation.",
+  "all_results_retained": true,
+  "arms": {
+    "firm_conditioned_qa_raw": "mean_firms(d), original signed raw baseline, PCA32",
+    "firm_conditioned_qa_direction": "mean_firms(d/||d||), original signed unit baseline, PCA32",
+    "unsigned_raw": "mean_firms(abs(d)), element-wise absolute value BEFORE sector averaging, PCA32",
+    "unsigned_unit": "mean_firms(abs(d/||d||)), element-wise absolute value BEFORE sector averaging, PCA32",
+    "raw_pca1": "mean_firms(d), same raw features but PCA1 as dimensionality diagnostic"
+  },
+  "features": {
+    "basis": "fixed pinned SEC-BERT embedding coordinates; no rotation before absolute value",
+    "words": [
+      128,
+      160,
+      200
+    ],
+    "reference": "strictly prior expanding issuer mean, at least two prior months",
+    "zero_norm_cutoff": 1e-12,
+    "sector_aggregation": "arithmetic firm mean, no sector renormalization",
+    "original_loader": "load_company_months(embedding_dir, final_cleanroom event_map, words)"
+  },
+  "head": {
+    "training_outcomes_through": "2020-12-01",
+    "eval_signal_start": "2023-11-01",
+    "standard_scaler": "training rows only",
+    "pca_solver": "full",
+    "pca_random_state": 42,
+    "ridge_alpha": 10000.0,
+    "target": "within-training-month percentile rank minus .5",
+    "expected_train_rows": 703,
+    "expected_eval_rows": 265
+  },
+  "ensemble": "Mean of within-month average percentile prediction ranks at 128,160,200 words",
+  "evaluation": {
+    "min_sectors": 6,
+    "expected_eligible_months": 24,
+    "ic": "Spearman cross-sectional correlation; arithmetic mean across eligible months"
+  },
+  "inference": {
+    "NW_lags": [
+      1,
+      2
+    ],
+    "NW_reference": "statsmodels OLS constant, HAC, use_correction=False, normal p-values",
+    "shift": {
+      "draws": 20000,
+      "seed": 20260724,
+      "method": "nonzero sector-wise circular shifts across all observed score months, exactly original sector order and RNG draw order",
+      "tail": "upper-tail (1 + count(null>=observed))/(1+draws)"
+    },
+    "paired_tests": [
+      [
+        "firm_conditioned_qa_raw",
+        "unsigned_raw"
+      ],
+      [
+        "firm_conditioned_qa_direction",
+        "unsigned_unit"
+      ],
+      [
+        "raw_pca1",
+        "angular_existing"
+      ],
+      [
+        "firm_conditioned_qa_raw",
+        "angular_existing"
+      ]
+    ],
+    "multiplicity": "unadjusted diagnostic p-values; all prespecified arms and contrasts retained"
+  },
+  "baseline_sanity": "Raw/unit fitted ensemble predictions must match archived scores within 1e-12 and monthly IC exactly",
+  "no_new_embeddings": true,
+  "frozen_utc": "2026-10-11T12:34:45.037844+00:00",
+  "source_input_sha256": {
+    "licensed_cleanroom_event_map": "2fc5106161feb3efc53d0be0581bff7cd05a691b5a28798f390561ee6130596f",
+    "sector_return_targets": "4afafe5b0b335d35450b8170e44829efa6735118eecec5cbe15fa9b307d6c4f9",
+    "archived_signed_baseline_sector_scores": "07244308cb784229553e7a18152005f8c5e2876354798cd718e1b9e68cbef92d",
+    "execution_dependency_3": "06085e2389879f36952355146fd784f531191a6985c22dd125c082ac4e9b441f",
+    "execution_dependency_4": "7db1828526796dc1482df7764a8a2b55a234b6f0c7ce86b52bbe52443a1a08b6",
+    "execution_dependency_5": "c7fdf5cf83a5cb036e1bd39ed184859cebadd89abe0b5c69d2a160a536d4a0f8",
+    "execution_dependency_6": "b94ed18a8cecfc8f1c1274112ec6843b21f770825abf64b475edceb469c77fdd",
+    "execution_dependency_7": "21c564c31117e8da66366e6bbfa6f86df446dd3beebcbf6ae75ce3fdca002687",
+    "licensed_call_cache_call_qa_all128.parquet": "06327911ec55ca65848793ee890d1e257e8bc85acf494572e7703e7e055dc80a",
+    "licensed_call_cache_call_prepared_all128.parquet": "0e555f4c1f1359714ae046a66b56f399a7b5b588459213402871e9966cfb5719",
+    "licensed_call_cache_call_qa_all160.parquet": "5e1ce15ac5c96e554b3589f29f8fb87bcbabcb4e2ff9548b6a4ad9c612295c1e",
+    "licensed_call_cache_call_prepared_all160.parquet": "7258ea7b404a1b797c61b4ab85a4252fed752c10646ae86779163be55d6b5902",
+    "licensed_call_cache_call_qa_all200.parquet": "c558051973497df9ef11f4bde051daac72f4694c3a59a6b680c35c03a70df1a2",
+    "licensed_call_cache_call_prepared_all200.parquet": "ce47c035108a98d77c849345469a04156138222278b00525c5cf44e00105a668"
+  },
+  "source_execution_protocol_sha256": "432be9ddbc3916f3d4e175d14833bfb3c843eb8fbda4c411491a9dbbede16943",
+  "public_replay_boundary": {
+    "inputs": "sector-level scores and targets, aggregate monthly IC and null paths",
+    "refits_unsigned_heads": false,
+    "reconstructs_firm_features": false,
+    "new_independent_holdout": false,
+    "private_call_vectors_included": false,
+    "original_raw_unit_full_refit_workflow_unchanged": true
+  }
+}

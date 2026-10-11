@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "protocol_sha256": "432be9ddbc3916f3d4e175d14833bfb3c843eb8fbda4c411491a9dbbede16943",
+  "baseline_reproduction": [
+    {
+      "candidate": "firm_conditioned_qa_raw",
+      "rows": 265,
+      "max_score_error": 0.0
+    },
+    {
+      "candidate": "firm_conditioned_qa_direction",
+      "rows": 265,
+      "max_score_error": 0.0
+    }
+  ],
+  "runtime_seconds": 6.035523333000128,
+  "boundary": "All five frozen arms retained. Post-review known-period diagnostic, not new holdout.",
+  "no_original_outputs_modified": true,
+  "no_portfolio_experiment_performed": true
+}
