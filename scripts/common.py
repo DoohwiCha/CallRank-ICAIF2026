@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Shared transformations for the frozen anonymous review artifact."""
+"""Shared transformations for the CallRank public release."""
 
 from __future__ import annotations
 

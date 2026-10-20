@@ -4,9 +4,18 @@ type: software
 title: "CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha"
 url: "https://github.com/DoohwiCha/CallRank-ICAIF2026"
 repository-code: "https://github.com/DoohwiCha/CallRank-ICAIF2026"
-version: "camera-ready-fixed-head-2026-10-04"
-date-released: "2026-10-04"
+version: "icaif26-camera-ready"
+date-released: "2026-10-20"
 license: MIT
+keywords:
+  - "earnings-call Q&A"
+  - "firm-conditioned language change"
+  - "signed displacement"
+  - "sector ranking"
+  - "sector allocation"
+  - "sector rotation"
+  - "financial NLP"
+  - "cost-adjusted alpha"
 authors:
   - family-names: "Cha"
     given-names: "Doohwi"
@@ -44,10 +53,17 @@ preferred-citation:
     - family-names: "Hwang"
       given-names: "Yoontae"
   title: "CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha"
-  collection-title: "ICAIF '26: 7th ACM International Conference on AI in Finance"
+  collection-title: "7th ACM International Conference on AI in Finance (ICAIF '26)"
   conference:
-    name: "ICAIF '26: 7th ACM International Conference on AI in Finance"
+    name: "ICAIF '26"
+    date-start: "2026-11-14"
+    date-end: "2026-11-17"
   publisher:
     name: "ACM"
+    city: "New York"
+    region: "NY"
+    country: "US"
   year: 2026
+  month: 11
+  isbn: "979-8-4007-3087-0"
   doi: "10.1145/3858063.3858800"

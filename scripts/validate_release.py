@@ -325,7 +325,7 @@ def git_identity_findings() -> list[str]:
 
 
 def git_history_shape() -> dict[str, Any]:
-    """Describe the intentionally history-clean anonymous review repository."""
+    """Describe the public repository's Git history and checked-out ref."""
     if not (ROOT / ".git").exists():
         return {
             "applicable": False,
@@ -353,20 +353,28 @@ def git_history_shape() -> dict[str, Any]:
     head_branch = subprocess.check_output(
         ["git", "branch", "--show-current"], cwd=ROOT, text=True
     ).strip()
+    head_tags = subprocess.check_output(
+        ["git", "tag", "--points-at", "HEAD"], cwd=ROOT, text=True
+    ).splitlines()
+    # A public release tag may be checked out directly (detached HEAD).
+    tagged_release_checkout = (
+        PUBLIC_MODE and not head_branch and bool(head_tags) and branches in ([], ["main"])
+    )
     detail = {
         "commits": commits,
         "roots": len(roots),
         "branches": branches,
         "tags": tags,
         "head_branch": head_branch,
+        "head_tags": head_tags,
     }
     return {
         "applicable": True,
         "passed": (commits >= 1 if PUBLIC_MODE else commits == 1)
         and len(roots) == 1
-        and branches == ["main"]
+        and (branches == ["main"] or tagged_release_checkout)
         and (PUBLIC_MODE or not tags)
-        and head_branch == "main",
+        and (head_branch == "main" or tagged_release_checkout),
         "detail": detail,
     }
 
@@ -529,7 +537,7 @@ def package_checks(aggregate_dir: Path) -> list[dict[str, Any]]:
     history = git_history_shape()
     add(
         checks,
-        "Git history has one public root on main" if PUBLIC_MODE else "Git history is one anonymous root on main",
+        "Git history has one public root; main or a release tag is checked out" if PUBLIC_MODE else "Git history is one anonymous root on main",
         history["passed"],
         history["detail"],
     )
@@ -675,7 +683,7 @@ def package_checks(aggregate_dir: Path) -> list[dict[str, Any]]:
     )
     add(
         checks,
-        "identity and embedding runtimes are exactly pinned",
+        "identity and embedding entry-point packages are pinned",
         "sentence-transformers==5.6.0" in embedding_requirements
         and "torch==2.12.1" in embedding_requirements
         and "spacy==3.8.14" in embedding_requirements

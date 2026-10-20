@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "snapshot": "accepted-v11-fixed-head",
+  "snapshot": "camera-ready-fixed-head-2026-10-04",
   "data_boundary": "Author-created sector-month Gram sufficient statistics, numerical target labels, normalized ETF total-return indices, public factor series, and Treasury yields. No call text, issuer identifiers, firm embeddings, portfolio holdings, or capitalization observations are included. Upstream text/identity/embedding regeneration requires separately obtained licensed inputs. These informative similarity matrices are not claimed to guarantee irreversibility.",
   "construction": {
     "training_standardization": "Feature-wise training-only mean and population standard deviation, followed by training-only PCA centering.",

@@ -1,14 +1,16 @@
 # Licensed input contract
 
-No licensed or provider-derived row is stored in this directory. This document
-describes upstream transcript-to-feature reconstruction, which reads licensed
-or locally derived files from `--data-dir`. The separate `public_inputs/`
+No licensed row is stored in this directory; its only data file is the public
+DGS3MO series described below. This document describes upstream
+transcript-to-feature reconstruction, which reads licensed or locally derived
+files from `--data-dir`. The separate `public_inputs/`
 directory provides sector-level sufficient statistics and derived market inputs
 for offline head, ranking, and portfolio replay without those upstream files.
 
 The one public empirical input in this directory is
-`DGS3MO_2023-10-01_2026-06-05.csv`, downloaded from the Federal Reserve Bank
-of St. Louis FRED series DGS3MO. Sharpe ratios map each strategy return date
+`DGS3MO_2023-10-01_2026-06-05.csv`, the Board of Governors of the Federal
+Reserve System series DGS3MO downloaded from FRED (Federal Reserve Bank of
+St. Louis; accessed July 25, 2026). Sharpe ratios map each strategy return date
 to the latest strictly prior observation and convert the annual percentage
 yield to a compounded daily return. This macro series contains no licensed
 transcript, membership, capitalization, provider-price, prediction, or
@@ -23,7 +25,7 @@ to create the call-section table:
 |---|---|
 | `issuer_call_id` | Stable call identifier |
 | `canonical_issuer_id` | Issuer resolved from ticker, opening identity, executives, and corporate history |
-| `verified_call_date` | Actual call date or externally confirmed date within the call month |
+| `verified_call_date` | Adjudicated call date that assigns the calendar month. Among the 4,604 post-encoder-release calls, 2,848 are day-level externally verified and 1,756 are month-only, filing-consistent (the provider month agrees with issuer- and period-matched SEC filings) |
 | `canonical_sector` | Sector effective on the verified call date |
 | `cleanroom_usable` | Final inclusion flag |
 | `content_sha256` | Licensed source-text hash |
@@ -43,7 +45,7 @@ fiscal-period validity, and point-in-time membership.
 | `security_id` | Stable issuer identifier |
 | `ticker` | Ticker effective on the call date |
 | `sector` | Sector label effective on the call date |
-| `earnings_date` | Verified actual call date used to assign the calendar month |
+| `earnings_date` | Adjudicated call date used to assign the calendar month (evidence classes as for `verified_call_date`) |
 | `membership_date` | Latest membership observation used for the call |
 | `in_index` | Point-in-time S&P 500 membership flag |
 | `prepared_text` | Licensed prepared-remarks text |
@@ -116,15 +118,15 @@ the builder creates a fixed identity shell from canonical company, canonical
 ticker, and speakers in first-occurrence order, then appends either the
 target's scrubbed body or a one-to-one same-month cross-issuer/cross-sector
 donor body. Donors minimize absolute log1p distance in the original capped-Q&A
-whitespace word count with the frozen SHA-256 tie breaker. The composite is
+whitespace word count with the frozen SHA-256 tie-breaker. The composite is
 not capped again. A fixed prepared-section scaffold is used for the two body
 arms because the reported identity table evaluates the Q&A raw-displacement
 and unit-direction representations, not a prepared-section representation.
 
 The donor map, transformed text, aliases, embeddings, and row-level
 predictions remain licensed and are not distributed. The public release
-contains the exact 24 monthly ICs, 20,000-draw masked timing nulls, and
-aggregate test summaries.
+contains the exact 24 monthly ICs, 20,000-draw calendar-shift nulls for the
+full identity mask, and aggregate test summaries.
 
 ### Portable reduced-alias reference
 
@@ -134,7 +136,7 @@ section schema plus `canonical_company`, `canonical_query_symbol`,
 long `--aliases` table with `issuer_call_id`, `alias_type`, and `alias`.
 It applies the ordinary minimum-length filter and character cap before the
 reduced alias mask. This path is useful for adapting another licensed source,
-but it is not claimed to recreate the manuscript's transformed corpus byte for
+but it is not claimed to recreate the paper's transformed corpus byte for
 byte.
 
 ## Derived model inputs
@@ -159,7 +161,7 @@ stable across ticker changes. Sector labels may change over time.
 
 The identification runner accepts a dated reported-earnings table with
 `ticker`, `date`, `epsActual`, `epsEstimated`, `revenueActual`, and
-`revenueEstimated`. The manuscript's point-in-time control uses only current
+`revenueEstimated`. The paper's point-in-time control uses only current
 and four-quarter-lagged actual EPS and revenue. Estimate-based surprise rows
 remain diagnostic because the licensed snapshot does not establish the
 historical vintage of every analyst estimate.
@@ -167,7 +169,7 @@ historical vintage of every analyst estimate.
 ## Point-in-time rules
 
 - The historical firm reference uses only earlier firm-month Q&A embeddings.
-- At least two prior firm-months are required before a residual is formed.
+- At least two prior firm-months are required before a displacement is formed.
 - Firms are equal-weighted within each sector-month.
 - Training includes only targets whose 42-day outcome is complete by
   December 1, 2020.
@@ -190,12 +192,16 @@ issuers, and adjudicates 149 calls against external issuer and date evidence.
 
 ## Provider boundary
 
-Provider acquisition and credentials are outside this repository. Users must
-supply their own licensed transcript, membership, capitalization, and price
-files. No script sends a provider request or prints a credential.
+Provider acquisition and credentials are outside this repository. The paper's
+data sources are licensed earnings-call transcripts and capitalization from
+Financial Modeling Prep, historical constituent membership from Norgate Data,
+company and regulatory event records, and dividend-adjusted ETF closes from
+Yahoo Finance. Users must supply their own licensed transcript, membership,
+capitalization, and price files. No script sends a provider request or prints
+a credential.
 
 The aggregate release also includes the public market, size, value,
 profitability, investment, momentum, and risk-free factors from the Kenneth
-French Data Library, restricted to the manuscript evaluation dates. These
+French Data Library, restricted to the paper's evaluation dates. These
 series support offline recomputation of the reported CAPM and FF5+Momentum
 alphas.

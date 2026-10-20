@@ -2,8 +2,8 @@
   "artifact": "CallRank aggregate review results",
   "files": {
     "README.md": {
-      "bytes": 4052,
-      "sha256": "2888d5e92860d53544a33ec9d5de9a098b8e01134bf4b283b887a0885425eff8"
+      "bytes": 14730,
+      "sha256": "d4cb10dcd1d270fc6721e65c9b3e63db147abc0a193b04389f7c775786483b2a"
     },
     "aggregate_summary.json": {
       "bytes": 1578,
@@ -62,36 +62,36 @@
       "sha256": "4a3be9de877831d2b28142efc0d9ee958bd867511d9d1158c6d6df628285b507"
     },
     "figures/callrank_history_reference.pdf": {
-      "bytes": 19031,
-      "sha256": "9b6e5e273b6b933743d9cc07d34da3385ab486763528cff45cbb9ab075465ed8"
+      "bytes": 19488,
+      "sha256": "c730c3ef8da236b8b8a99a99f4e8ac7ea3135eb77eb2fca18a485e795190a0e8"
     },
     "figures/callrank_history_reference.png": {
-      "bytes": 36353,
-      "sha256": "b65e150e2e29b2fe768a486de2f433c6ac5106fda2f79b1b574da17f738e86d4"
+      "bytes": 37546,
+      "sha256": "a9dd00f41fb692388c581dbae12a8af1b62c4fe5e16fe6255069408945dc9fd6"
     },
     "figures/callrank_method.pdf": {
-      "bytes": 42139,
-      "sha256": "b3fc11bc27c2ae1d889ac8c9800c43c070533dd100f870ee6a86b90944c62572"
+      "bytes": 42137,
+      "sha256": "a80cac58c44257273ca124780dd4b418db266c5e354ce4c64c0f510d22856e2b"
     },
     "figures/callrank_method.png": {
       "bytes": 234395,
       "sha256": "e1bbcb02eccf3ca7762765316dda78b5d8783aa5406671ce71da07cc3b217002"
     },
     "figures/callrank_robustness.pdf": {
-      "bytes": 15675,
-      "sha256": "8013d7f246fd303fff4ca2afab794da543686ba399281c67eb7187760cb8b7f9"
+      "bytes": 16205,
+      "sha256": "d10ea927b2b6c650af3fa5f5186acce360f1c99fe205bd426f979d4c8d44aab2"
     },
     "figures/callrank_robustness.png": {
-      "bytes": 42630,
-      "sha256": "59b13fe5e7d5f37eec7f07ba60f86af6f5f9554616f5afb66c242731465f533f"
+      "bytes": 52003,
+      "sha256": "1402882263c35e510c2b9153d8b8a7c91493cfca9a3ded05d17697a6d136e8a0"
     },
     "figures/callrank_sector_allocation.pdf": {
-      "bytes": 48305,
-      "sha256": "668a31560883a0525893d3dd21bcbebcd41647b0073f2142595e68eff4c716c6"
+      "bytes": 48599,
+      "sha256": "c42ff18abc4e0480f08633931192c452324cbb2b25e289d7d2da1312b0675ed0"
     },
     "figures/callrank_sector_allocation.png": {
-      "bytes": 185719,
-      "sha256": "13f48e4983f7891a55e8b7a4bb890ba6b83c77355800fbccef718c106cb0e3d3"
+      "bytes": 196620,
+      "sha256": "91068c2d23d3c1c763d52cd46fa0d3c08def0fd2195b8913bc063400356e2e07"
     },
     "figures/callrank_time_alignment.pdf": {
       "bytes": 16350,
@@ -214,8 +214,8 @@
       "sha256": "c78a9f3e8da31030e31ecfe38329cec9e593f131c09f97dbed9026d3eab78af8"
     },
     "training_correction_ablation.csv": {
-      "bytes": 860,
-      "sha256": "82dfff2a4dfc8370e09e48a0b039dd6ab511e8b2a89a0dad6f8ed47b141992df"
+      "bytes": 888,
+      "sha256": "02d0bcbf2f22c45e056bc6103ec6a6e6c35d885d11b3640c7959b5fa3e899dd2"
     },
     "wrong_firm_placebo_draws.csv": {
       "bytes": 26885,

@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 """Build the three licensed section tables for identity-control evaluation.
 
-The input follows the canonical section schema used by ``build_embeddings.py``
-and additionally supplies company and current-call speaker aliases, either in
+With ``--frozen-inputs`` (the reported experiment), the builder reads the
+canonical capped Q&A bytes, a dated issuer-metadata registry, and the
+participant-pair roster, and applies the frozen masking engine in
+``scripts/identity_masking.py``. Without it, a portable reduced-alias path
+accepts the canonical section schema used by ``build_embeddings.py`` plus
+company and current-call speaker aliases, either in
 ``company_aliases``/``speaker_aliases`` cells or in a long alias registry.
 This entry point writes ``full_identity_mask.parquet``, ``correct_body.parquet``,
 and ``donor_body.parquet``.  Every output retains the target call keys so the

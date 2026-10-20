@@ -1,18 +1,48 @@
 {
   "status": "PASS",
   "repository_url": "https://github.com/DoohwiCha/CallRank-ICAIF2026",
-  "source_review_commit": "8d5cfb09fa274317918b23aa15a2904c5eda792c",
-  "original_review_files_unchanged": 91,
-  "source_review_files_copied": 91,
-  "source_files_byte_preserved": 86,
-  "source_files_with_attribution_documentation_or_validator_changes": [
-    "LICENSE",
-    "README.md",
-    "config/frozen_config.json",
-    "data/README.md",
-    "scripts/validate_release.py"
-  ],
-  "scientific_aggregate_files_byte_preserved": 56,
+  "release_tag": "icaif26-camera-ready",
+  "review_artifact": {
+    "source_review_commit": "8d5cfb09fa274317918b23aa15a2904c5eda792c",
+    "source_review_version": "review-snapshot-fixed-head-2026-08-05",
+    "accepted_review_snapshot": {
+      "date": "2026-10-11",
+      "source_sha256": "ffb0e65ebd54475a15b1a94022d90c70da26d28fc540c7522ba972673b41e579",
+      "pdf_sha256": "601b7872fdfbfc634dad2140e7ae4c565854903f13635a4d8a8eba4e0379f124"
+    },
+    "files_copied": 91,
+    "files_byte_identical_in_this_release": 72,
+    "files_changed_in_this_release": [
+      "LICENSE",
+      "README.md",
+      "aggregate_results/README.md",
+      "aggregate_results/aggregate_manifest.json",
+      "aggregate_results/figures/callrank_history_reference.pdf",
+      "aggregate_results/figures/callrank_history_reference.png",
+      "aggregate_results/figures/callrank_method.pdf",
+      "aggregate_results/figures/callrank_robustness.pdf",
+      "aggregate_results/figures/callrank_robustness.png",
+      "aggregate_results/figures/callrank_sector_allocation.pdf",
+      "aggregate_results/figures/callrank_sector_allocation.png",
+      "aggregate_results/training_correction_ablation.csv",
+      "config/frozen_config.json",
+      "data/README.md",
+      "scripts/build_identity_controls.py",
+      "scripts/build_manuscript_figures.py",
+      "scripts/common.py",
+      "scripts/portfolio.py",
+      "scripts/validate_release.py"
+    ],
+    "aggregate_files": 56,
+    "aggregate_files_byte_identical_in_this_release": 46
+  },
+  "change_notes": {
+    "aggregate_results/figures": "Figures 1-4 use the camera-ready files and labels; plotted values are unchanged.",
+    "aggregate_results/training_correction_ablation.csv": "Scenario label renamed to omitted_issuer_restored; values unchanged.",
+    "scripts": "Docstrings, camera-ready figure labels and a PNG bounding box that keeps the x-axis labels (build_manuscript_figures.py), tagged-release checkout support and renamed check labels in validate_release.py, and removal of an unused function; no numerical code path changed.",
+    "environment": "requirements-validation.txt pins pillow==13.0.0, on which the rebuilt PNG bytes depend; .gitattributes (* -text) disables line-ending conversion so checkouts match the manifests.",
+    "documentation": "README files, CODE_AND_DATA_NOTICE.md, data/README.md, CITATION.cff, and release metadata updated for the camera-ready release."
+  },
   "scientific_numeric_settings_changed": false,
   "synthetic_tests_passed": 38,
   "aggregate_numeric_comparisons": 660,
@@ -25,11 +55,23 @@
   "public_input_maximum_numeric_error": 6.925016116099414e-14,
   "public_training_rows": 703,
   "public_evaluation_sector_months": 265,
+  "public_eligible_scored_sector_months": 240,
   "public_input_payload_bytes": 32198373,
-  "figures_regenerated_byte_identical": 10,
+  "figure_files_rebuilt_by_public_script": [
+    "aggregate_results/figures/callrank_history_reference.pdf",
+    "aggregate_results/figures/callrank_history_reference.png",
+    "aggregate_results/figures/callrank_robustness.pdf",
+    "aggregate_results/figures/callrank_robustness.png"
+  ],
+  "figure_pdfs_identical_to_camera_ready_files": [
+    "callrank_method.pdf",
+    "callrank_history_reference.pdf",
+    "callrank_sector_allocation.pdf",
+    "callrank_robustness.pdf"
+  ],
   "network_required_for_numerical_replay": false,
-  "private_correction_outputs_or_production_inputs_published": false,
-  "public_package_checks_passed": 61,
+  "private_outputs_or_licensed_inputs_published": false,
+  "initial_release_public_package_checks_passed": 61,
   "post_review_unsigned_diagnostic": {
     "added": "2026-10-11",
     "status": "PASS",
@@ -49,5 +91,5 @@
   },
   "current_public_package_checks_passed": 63,
   "current_public_package_checks_total": 63,
-  "public_sync_scope": "Camera-ready manuscript citation, DOI, and ISBN; accepted-snapshot numerical outputs retained."
+  "public_sync_scope": "Camera-ready paper citation, figure labels, and documentation; the accepted-snapshot numerical outputs are unchanged."
 }

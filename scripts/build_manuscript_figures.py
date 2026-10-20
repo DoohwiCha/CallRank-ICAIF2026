@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the two manuscript diagnostic figures from released aggregates."""
+"""Rebuild paper Figures 2 and 4 from released aggregates, with the camera-ready labels."""
 
 from __future__ import annotations
 
@@ -41,6 +41,7 @@ def save(fig: plt.Figure, stem: Path) -> None:
     fig.savefig(
         stem.with_suffix(".png"),
         bbox_inches="tight",
+        bbox_extra_artists=[ax.xaxis.label for ax in fig.axes],
         pad_inches=0.03,
         dpi=180,
     )
@@ -48,6 +49,11 @@ def save(fig: plt.Figure, stem: Path) -> None:
 
 def robustness_figure(aggregate: Path, figures: Path) -> None:
     plot = pd.read_csv(aggregate / "raw_robustness.csv").iloc[::-1].reset_index(drop=True)
+    names = {"main": "Main raw displacement", "history_8": "At least eight prior firm-months"}
+    plot["label"] = [
+        f"{names.get(key, label)} (n={months})"
+        for key, label, months in zip(plot["key"], plot["label"], plot["months"], strict=True)
+    ]
     y = np.arange(len(plot))
     with plt.rc_context(
         {
@@ -96,7 +102,7 @@ def robustness_figure(aggregate: Path, figures: Path) -> None:
         ax.set_yticks(y, plot["label"])
         ax.set_xlim(-0.045, 0.31)
         ax.set_xticks((0.0, 0.1, 0.2, 0.3))
-        ax.set_xlabel("Mean monthly raw-displacement rank IC")
+        ax.set_xlabel("Mean monthly raw-displacement sector-rank IC")
         ax.grid(axis="x", color=COLORS["grid"], linewidth=0.55)
         ax.set_axisbelow(True)
         ax.tick_params(axis="y", length=0, pad=3)
@@ -153,12 +159,12 @@ def history_figure(aggregate: Path, figures: Path) -> None:
             edgecolor="none",
             zorder=3,
         )
-        axes[0].set_yticks(np.arange(2), ("Own-firm history", "Wrong firm, same sector"))
+        axes[0].set_yticks(np.arange(2), ("Own-firm reference", "Wrong-firm placebo"))
         axes[0].invert_yaxis()
         axes[0].set_xlim(0.0, 0.21)
         axes[0].set_xticks((0.0, 0.05, 0.10, 0.15, 0.20))
-        axes[0].set_xlabel("Mean monthly rank IC", labelpad=2)
-        axes[0].set_title(f"(a) Matched history placebo ($p$={placebo_p:.3f})", loc="left", pad=3)
+        axes[0].set_xlabel("Mean monthly sector-rank IC", labelpad=2)
+        axes[0].set_title(f"(a) Same-sector wrong-firm placebo ($p$={placebo_p:.3f})", loc="left", pad=3)
         annotations = (f"{own:.3f} [NW $p$={own_p:.3f}]", f"{wrong:.3f} [mean]")
         for position, (value, annotation) in enumerate(zip(history_values, annotations, strict=True)):
             axes[0].text(value + 0.004, position, annotation.lstrip("0"), ha="left", va="center", fontsize=6.2)
@@ -172,12 +178,12 @@ def history_figure(aggregate: Path, figures: Path) -> None:
             edgecolor="none",
             zorder=3,
         )
-        axes[1].set_yticks(np.arange(2), ("Current Q&A", "Own-history direction"))
+        axes[1].set_yticks(np.arange(2), ("Current Q&A", "Unit direction"))
         axes[1].invert_yaxis()
         axes[1].set_xlim(0.0, 46.0)
         axes[1].set_xticks((0.0, 10.0, 20.0, 30.0, 40.0))
-        axes[1].set_xlabel("Issuer top-1 accuracy (%)", labelpad=2)
-        axes[1].set_title("(b) Issuer-identity retrieval", loc="left", pad=3)
+        axes[1].set_xlabel("Top-1 issuer-retrieval accuracy (%)", labelpad=2)
+        axes[1].set_title("(b) Issuer-retrieval accuracy", loc="left", pad=3)
         for position, value in enumerate(identity_values):
             axes[1].text(value + 1.0, position, f"{value:.1f}%", ha="left", va="center", fontsize=6.2)
         for ax in axes:
@@ -201,7 +207,7 @@ def main() -> None:
     figures = aggregate / "figures"
     robustness_figure(aggregate, figures)
     history_figure(aggregate, figures)
-    print(f"Rebuilt manuscript diagnostic figures in {figures}")
+    print(f"Rebuilt Figures 2 and 4 in {figures}")
 
 
 if __name__ == "__main__":

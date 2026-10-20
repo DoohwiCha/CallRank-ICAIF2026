@@ -346,25 +346,3 @@ def momentum_scores(scored: pd.DataFrame, prices: pd.DataFrame) -> pd.DataFrame:
     if not result["momentum_formation_end"].lt(result["entry_date"]).all():
         raise RuntimeError("Momentum formation reaches or follows entry")
     return result
-
-
-def alpha_after_momentum(callrank: pd.DataFrame, momentum: pd.DataFrame) -> dict[str, float | int]:
-    merged = callrank[["date", "net_return", "spy_return"]].merge(
-        momentum[["date", "net_return"]].rename(columns={"net_return": "momentum_return"}),
-        on="date",
-        validate="one_to_one",
-    )
-    x = sm.add_constant(merged[["spy_return", "momentum_return"]].to_numpy())
-    lag = int(load_config()["momentum_control"]["newey_west_lag"])
-    fit = sm.OLS(merged["net_return"].to_numpy(), x).fit(
-        cov_type="HAC", cov_kwds={"maxlags": lag}
-    )
-    return {
-        "observations": int(len(merged)),
-        "callrank_alpha_after_spy_and_momentum": float(
-            (1.0 + float(fit.params[0])) ** 252.0 - 1.0
-        ),
-        "callrank_alpha_p": float(fit.pvalues[0]),
-        "spy_beta": float(fit.params[1]),
-        "momentum_beta": float(fit.params[2]),
-    }

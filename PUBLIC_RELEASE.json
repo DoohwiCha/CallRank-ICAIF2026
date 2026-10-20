@@ -1,9 +1,9 @@
 {
   "release_mode": "public_camera_ready",
   "repository_url": "https://github.com/DoohwiCha/CallRank-ICAIF2026",
-  "paper_id": 682,
+  "release_tag": "icaif26-camera-ready",
   "paper_title": "CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha",
-  "conference": "ICAIF 2026",
+  "conference": "7th ACM International Conference on AI in Finance (ICAIF '26)",
   "authors": [
     "Doohwi Cha",
     "Minsuk Sung",
@@ -21,8 +21,6 @@
   "maintainer_git_emails": [
     "91770960+DoohwiCha@users.noreply.github.com"
   ],
-  "source_review_version": "review-snapshot-fixed-head-2026-08-05",
-  "source_review_commit": "8d5cfb09fa274317918b23aa15a2904c5eda792c",
   "scientific_results_changed": false,
   "raw_text_included": false,
   "firm_level_rows_included": false,
@@ -34,6 +32,9 @@
     "public_data_files": 11,
     "training_sector_months": 703,
     "evaluation_sector_months": 265,
+    "evaluation_sector_months_scope": "target-complete sector-months in 29 call months (paper Table 1, Panel C)",
+    "eligible_scored_sector_months": 240,
+    "eligible_decision_months": 24,
     "predictions_or_coefficients_are_inputs": false,
     "upstream_encoder_and_firm_features_require_licensed_inputs": true
   },
@@ -58,19 +59,13 @@
     "replay_script": "scripts/recompute_unsigned_diagnostic.py"
   },
   "public_repository_synchronized": true,
-  "public_repository_sync_scope": "Camera-ready manuscript citation, DOI, and ISBN; accepted-snapshot numerical outputs retained.",
-  "manuscript_snapshot": {
+  "public_repository_sync_scope": "Camera-ready paper citation, figure labels, and documentation; the accepted-snapshot numerical outputs are unchanged.",
+  "camera_ready_paper": {
     "stage": "camera_ready",
-    "camera_ready_english_source_sha256": "4829c4c179c5866ccd4fab2a2d3e4b6fe96f7ea1b897ebd12dc9481e5dfe8c61",
-    "accepted_reviewer_snapshot": {
-      "date": "2026-10-11",
-      "english_source_sha256": "ffb0e65ebd54475a15b1a94022d90c70da26d28fc540c7522ba972673b41e579",
-      "english_pdf_sha256": "601b7872fdfbfc634dad2140e7ae4c565854903f13635a4d8a8eba4e0379f124"
-    },
+    "source_sha256": "4829c4c179c5866ccd4fab2a2d3e4b6fe96f7ea1b897ebd12dc9481e5dfe8c61",
+    "pdf_sha256": "0290e2d74c4033a57a95bc9da9e8c8737a49bb7353fbb17174b8d7f498c44867",
     "existing_headline_values_retained": true,
     "post_review_unsigned_diagnostic_included": true,
-    "input_corrections_applied": false,
-    "taps_proofs_approved": null,
-    "taps_proofs_approved_note": "not tracked in this repository"
+    "input_corrections_applied": false
   }
 }

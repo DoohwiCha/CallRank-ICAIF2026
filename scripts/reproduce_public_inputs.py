@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Refit the accepted main rankers from public numerical sufficient statistics.
+"""Refit the paper's raw-displacement and unit-direction rankers from public sufficient statistics.
 
 The input boundary is author-generated sector-month Gram matrices, not raw
 earnings-call text or issuer embeddings. Training labels are recomputed from
