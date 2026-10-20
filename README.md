@@ -4,16 +4,17 @@ Code and aggregate results for **CallRank: Isolating What Changed in
 Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha**, accepted at
 ICAIF 2026 (paper 682).
 
-Authors, in the CMT registration order: **Doohwi Cha, Minsuk Sung, Seunghan Son,
+Authors, in the paper's author order: **Doohwi Cha, Minsuk Sung, Seunghan Son,
 Juyeong Lee, Donghwa Seo, Minjae Lee, Hyeonjun Yeo, and Yoontae Hwang**.
 
 Public repository: <https://github.com/DoohwiCha/CallRank-ICAIF2026>.
 
-Current version: the October 11, 2026 reviewer revision, before the
-corresponding author finalizes the manuscript in Overleaf. It includes the
-unsigned diagnostic below and retains the accepted-snapshot numerical outputs.
-The snapshot hashes are recorded in `PUBLIC_RELEASE.json`; later manuscript
-changes will be synchronized separately. ACM/TAPS production is pending.
+Paper citation (ACM Reference Format): Doohwi Cha, Minsuk Sung, Seunghan Son,
+Juyeong Lee, Donghwa Seo, Minjae Lee, Hyeonjun Yeo, and Yoontae Hwang. 2026.
+CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and
+Cost-Adjusted Alpha. In 7th ACM International Conference on AI in Finance
+(ICAIF '26), November 14–17, 2026, Milan, AA, Italy. ACM, New York, NY, USA,
+9 pages. https://doi.org/10.1145/3858063.3858800
 
 This repository contains the public implementation, fixed configuration,
 aggregate results, public sufficient-statistic replay inputs, input contracts,
@@ -161,6 +162,9 @@ release identifies a firm or an actual account holding.
 | Firm matching | Own-history direction IC .135 (NW p .013); same-sector wrong-firm p .005; issuer retrieval 41.4% versus 3.2% | `history_reference_tests.csv`, `wrong_firm_placebo_draws.csv`, `issuer_identity_probe.csv` |
 | Raw robustness | All nine estimates are positive; six 95% NW intervals exclude zero; reported-earnings partial IC .171; history-at-least-eight IC .144 | `raw_robustness.csv`, `figures/callrank_robustness.pdf` |
 | Sector concentration | The leader spans ten sectors; static XLU returns 17.4% annually versus 24.0% for SPY | `top1_selection_frequency.csv`, `static_sector_benchmark.csv` |
+
+Exact-tie sensitivity: see paper §4.2 and
+[`aggregate_results/README.md`](aggregate_results/README.md).
 
 ## Validate without licensed data
 

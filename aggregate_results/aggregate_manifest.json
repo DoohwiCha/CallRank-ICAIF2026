@@ -2,8 +2,8 @@
   "artifact": "CallRank aggregate review results",
   "files": {
     "README.md": {
-      "bytes": 3712,
-      "sha256": "d35429e659f9d5b7f201f148dae8751d694aa87ee32396fc6c4b0a710bb04cb3"
+      "bytes": 4052,
+      "sha256": "2888d5e92860d53544a33ec9d5de9a098b8e01134bf4b283b887a0885425eff8"
     },
     "aggregate_summary.json": {
       "bytes": 1578,

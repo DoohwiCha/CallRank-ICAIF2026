@@ -58,3 +58,9 @@ the active sleeves. `random_sector_null.csv` contains 2,000 path-level summary
 metrics, not sector selections. These files contain no sector holding,
 prediction, company, transcript, membership, capitalization, or provider-price
 row.
+
+Exact-tie sensitivity: see paper §4.2 (holding both tied sectors yields 41.9%
+annualized net return and 26.9% SPY-adjusted alpha). The released
+`top1_all_cutoff_ties` rows compare stored ensemble scores for exact equality;
+the two April 2025 scores differ by one unit in the last binary place, so those
+rows keep the canonical selection.

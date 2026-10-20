@@ -26,8 +26,8 @@
   "scientific_results_changed": false,
   "raw_text_included": false,
   "firm_level_rows_included": false,
-  "doi": "",
-  "isbn": "",
+  "doi": "10.1145/3858063.3858800",
+  "isbn": "979-8-4007-3087-0/2026/11",
   "public_reproduction": {
     "boundary": "train-only standardized sector-month Gram sufficient statistics",
     "refitted_raw_unit_heads": 6,
@@ -58,15 +58,19 @@
     "replay_script": "scripts/recompute_unsigned_diagnostic.py"
   },
   "public_repository_synchronized": true,
-  "public_repository_sync_scope": "Current reviewer-revision snapshot; corresponding-author Overleaf finalization and TAPS proof approval remain pending.",
+  "public_repository_sync_scope": "Camera-ready manuscript citation, DOI, and ISBN; accepted-snapshot numerical outputs retained.",
   "manuscript_snapshot": {
-    "stage": "before_corresponding_author_overleaf_finalization",
-    "date": "2026-10-11",
-    "english_source_sha256": "ffb0e65ebd54475a15b1a94022d90c70da26d28fc540c7522ba972673b41e579",
-    "english_pdf_sha256": "601b7872fdfbfc634dad2140e7ae4c565854903f13635a4d8a8eba4e0379f124",
+    "stage": "camera_ready",
+    "camera_ready_english_source_sha256": "4829c4c179c5866ccd4fab2a2d3e4b6fe96f7ea1b897ebd12dc9481e5dfe8c61",
+    "accepted_reviewer_snapshot": {
+      "date": "2026-10-11",
+      "english_source_sha256": "ffb0e65ebd54475a15b1a94022d90c70da26d28fc540c7522ba972673b41e579",
+      "english_pdf_sha256": "601b7872fdfbfc634dad2140e7ae4c565854903f13635a4d8a8eba4e0379f124"
+    },
     "existing_headline_values_retained": true,
     "post_review_unsigned_diagnostic_included": true,
     "input_corrections_applied": false,
-    "taps_proofs_approved": false
+    "taps_proofs_approved": null,
+    "taps_proofs_approved_note": "not tracked in this repository"
   }
 }

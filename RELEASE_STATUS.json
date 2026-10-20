@@ -1,6 +1,6 @@
 {
   "artifact_mode": "named_camera_ready_code_and_aggregate_results",
-  "status": "REVIEWER_REVISION_PRE_OVERLEAF_FINALIZATION",
+  "status": "CAMERA_READY_MANUSCRIPT_REFERENCED",
   "public_repository_url": "https://github.com/DoohwiCha/CallRank-ICAIF2026",
   "paper_id": 682,
   "original_review_artifact_preserved": true,
@@ -13,7 +13,7 @@
   "refitted_heads": 6,
   "numeric_comparisons": 97,
   "maximum_numeric_error": 6.925016116099414e-14,
-  "required_action": "After corresponding-author Overleaf finalization, synchronize any new manuscript-dependent changes and complete TAPS production.",
+  "required_action": "None. The released numerical outputs are unchanged; aggregate_results/README.md references the camera-ready exact-tie sensitivity in paper Section 4.2.",
   "scientific_results_changed_scope": "original accepted-snapshot outputs",
   "post_review_unsigned_diagnostic_added": true,
   "public_repository_synchronized": true,
@@ -28,5 +28,5 @@
   },
   "current_public_package_checks_passed": 63,
   "current_public_package_checks_total": 63,
-  "sync_scope": "Current reviewer-revision snapshot; this is not a statement of final ACM production completion."
+  "sync_scope": "Camera-ready manuscript citation and DOI; accepted-snapshot numerical outputs retained."
 }

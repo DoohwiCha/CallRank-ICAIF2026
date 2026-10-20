@@ -24,3 +24,30 @@ authors:
     given-names: "Hyeonjun"
   - family-names: "Hwang"
     given-names: "Yoontae"
+preferred-citation:
+  type: conference-paper
+  authors:
+    - family-names: "Cha"
+      given-names: "Doohwi"
+    - family-names: "Sung"
+      given-names: "Minsuk"
+    - family-names: "Son"
+      given-names: "Seunghan"
+    - family-names: "Lee"
+      given-names: "Juyeong"
+    - family-names: "Seo"
+      given-names: "Donghwa"
+    - family-names: "Lee"
+      given-names: "Minjae"
+    - family-names: "Yeo"
+      given-names: "Hyeonjun"
+    - family-names: "Hwang"
+      given-names: "Yoontae"
+  title: "CallRank: Isolating What Changed in Earnings-Call Q&A for Sector Ranking and Cost-Adjusted Alpha"
+  collection-title: "ICAIF '26: 7th ACM International Conference on AI in Finance"
+  conference:
+    name: "ICAIF '26: 7th ACM International Conference on AI in Finance"
+  publisher:
+    name: "ACM"
+  year: 2026
+  doi: "10.1145/3858063.3858800"
